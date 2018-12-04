@@ -16,37 +16,25 @@
                     <div class="col-lg-12">
 						<h1>Find Your Purpose Join Us</h1>
 						<h2 class="section-heading">We're Hiring!!!</h2><br><br>
-						<?php
-						for($i=0 ; $i<count($listdata) ; $i++)
-						{ ?>
+						<?php for($i=0 ; $i<count($listdata) ; $i++) { ?>
 						<div class="row">
-							<div class="col-lg-2">
-								<p class="text-left">
-									Position
-								</p>
+							<div class="col-xs-2">
+								<label class="control-label" style="font-size: 22px;">Position</label>
 							</div>
-							<div class="col-lg-10">
-								<p class="text-left">
-									<?php echo $listdata[$i]->judul; ?>
-								</p>
+							<div class="col-xs-6">
+								<label class="control-label" style="font-size: 22px;"><?= $listdata[$i]->judul; ?></label>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<hr class="hr-blue">
-								<p class="text-left">
+							<div class="col-xs-4 text-right">
+								<span style="font-size: 22px;">
 									<a href="<?php echo base_url() ?>Home/career_details/<?php echo $listdata[$i]->id_job ?>">
 										See more Details>>>
 									</a>
-								</p>
-								<hr class="hr-blue">
+								</span>
 							</div>
 						</div>
-						<?php
-						}
-						?>
+						<?php } ?>
 						<div class="text-center">
-                			<?php echo $pagination; ?>
+                			<?= $pagination; ?>
             			</div>					
 					</div>
 				</div>

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="We Tritunggal Metalworks (PT Kreasi Cipta Tritunggal) is a company focused on the field of billboard construction. As for some of the products we produce in the form of billboard construction such as billboards / banners / Videotron, neon, letter sign, canopi, fence, BTS tower, the working ACP for interior and exterior.">
+    <meta name="description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction">
     <meta name="author" content="Kaisha">
     <link rel="icon" href="<?php echo base_url();?>assets/img/icon.ico"/>
     <!-- Twitter Card data -->
     <meta name="twitter:card" value="summary">
     <!-- Open Graph data -->
-    <meta property="og:title" content="PT Wijaya Persada Indonesia" />
+    <meta property="og:title" content="PT Kreasi Cipta Tritunggal" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.wiperindonesia.com/" />
-    <meta property="og:image" content="<?php echo base_url();?>assets/img/other/wiper.png" />
-    <meta property="og:description" content="We Tritunggal Metalworks (PT Kreasi Cipta Tritunggal) is a company focused on the field of billboard construction. As for some of the products we produce in the form of billboard construction such as billboards / banners / Videotron, neon, letter sign, canopi, fence, BTS tower, the working ACP for interior and exterior." />
+    <meta property="og:url" content="http://www.tritunggalmetalworks.com/" />
+    <meta property="og:image" content="<?php echo base_url();?>assets/img/tritunggal.png" />
+    <meta property="og:description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction" />
     <title><?php echo $title ; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
