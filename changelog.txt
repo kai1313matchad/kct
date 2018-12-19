@@ -1,0 +1,12 @@
+19122018
+Tambah tabel meta
+CREATE TABLE `meta_tag` (
+	`meta_id` INT NOT NULL AUTO_INCREMENT,
+	`meta_title` TEXT NULL,
+	`meta_keyword` TEXT NULL,
+	`meta_desc` TEXT NULL,
+	PRIMARY KEY (`meta_id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
