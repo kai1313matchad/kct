@@ -841,8 +841,7 @@
 			$table='products';
 			$idtable='id_product';
 			$table2='meta_tag';
-			$idtable2='meta_id';
-			// $get_prod = $this->db->get_where($table,array($idtable=>$id))->row();
+			$idtable2='meta_id';			
 			$get_meta = $this->db->get_where($table2,array($idtable2=>4));
 			$res = array();
 			$res[] = '<meta name="og:title" content="'.$get_meta->row()->meta_title.'">';

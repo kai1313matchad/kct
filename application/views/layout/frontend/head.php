@@ -16,7 +16,8 @@
     <meta property="og:image" content="<?php echo base_url();?>assets/img/tritunggal.png" /> -->
     <!-- <meta property="og:description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction" /> -->
     <?php 
-         foreach ($meta_add as $key) {
+         foreach ($meta_add as $key)
+         {
                  echo $key."\n";
          }
     ?>
