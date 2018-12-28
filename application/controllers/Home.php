@@ -49,6 +49,7 @@
 			
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/index';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);
 		}
 
@@ -56,6 +57,7 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/history';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -63,6 +65,7 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/vismis';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 		
@@ -70,6 +73,7 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -77,6 +81,7 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/management';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -118,6 +123,7 @@
 		    $data['pagination'] = $this->pagination->create_links();		    
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/billboard';
+			$data['meta_add'] = $this->meta_prod(3);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -159,6 +165,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/canopy';
+			$data['meta_add'] = $this->meta_prod(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -200,6 +207,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/ex_fascia';
+			$data['meta_add'] = $this->meta_prod(4);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -241,6 +249,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/in_fascia';
+			$data['meta_add'] = $this->meta_prod(5);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}		
 
@@ -282,6 +291,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/letter';
+			$data['meta_add'] = $this->meta_prod(6);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -323,6 +333,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/mural';
+			$data['meta_add'] = $this->meta_prod(7);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}		
 
@@ -364,6 +375,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/neon';
+			$data['meta_add'] = $this->meta_prod(8);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}		
 
@@ -405,6 +417,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/pylon';
+			$data['meta_add'] = $this->meta_prod(9);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -446,6 +459,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/bts';
+			$data['meta_add'] = $this->meta_prod(10);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -453,6 +467,7 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/contact';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -528,6 +543,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/client';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -569,17 +585,22 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/news';
+			$data['meta_add'] = $this->meta_artikel(3);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
 		public function news_detail()
 		{
+			$d=array();
 			$id=$this->uri->segment(3);
 			$table='news';
 			$idtable='id_news';
-			$data['news']=$this->M_dash->select_data($id,$table,$idtable);
+			$d=$this->M_dash->select_data($id,$table,$idtable);
+			// $data['news']=$this->M_dash->select_data($id,$table,$idtable);
+			$data['news']=$d;
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/news_detail';
+			$data['meta_add'] = $this->meta_artikel($d['path']);
 			$this->load->view('layout/frontend/wrapper',$data);
 		}
 
@@ -621,6 +642,7 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/career';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -632,6 +654,7 @@
 			$data['jobs']=$this->M_dash->select_data($id,$table,$idtable);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/career_details';
+			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
@@ -782,6 +805,50 @@
 					$this->load->view('layout/frontend/wrapper',$data);
 				}
 			}
+		}
+
+		public function meta_social($id)
+		{
+			$table='meta_tag';
+			$idtable='meta_id';
+			$getmeta = $this->db->get_where($table,array($idtable=>$id));
+			$res = array();
+			$res[] = '<meta name="twitter:title" content="'.$getmeta->row()->meta_title.'">';
+            $res[] = '<meta name="twitter:description" content="'.$getmeta->row()->meta_desc.'">';
+            $res[] = '<meta name="og:title" content="'.$getmeta->row()->meta_title.'">';
+            $res[] = '<meta name="og:description" content="'.$getmeta->row()->meta_desc.'">';
+			return $res;
 		}	
+
+		public function meta_prod($id)
+		{
+			$table='products';
+			$idtable='id_product';
+			$table2='meta_tag';
+			$idtable2='meta_id';
+			$get_prod = $this->db->get_where($table,array($idtable=>$id))->row();
+			$get_meta = $this->db->get_where($table2,array($idtable2=>3));
+			$res = array();
+			$res[] = '<meta name="og:title" content="'.$get_meta->row()->meta_title.'">';
+            $res[] = '<meta name="og:description" content="'.$get_meta->row()->meta_desc.'">';
+            $res[] = '<meta name="og:image" content="'.$get_prod->path.'">';
+			$data['meta_addon'] = $res;
+			return $res;
+		}
+
+		public function meta_artikel($path)
+		{
+			$table='products';
+			$idtable='id_product';
+			$table2='meta_tag';
+			$idtable2='meta_id';			
+			$get_meta = $this->db->get_where($table2,array($idtable2=>4));
+			$res = array();
+			$res[] = '<meta name="og:title" content="'.$get_meta->row()->meta_title.'">';
+            $res[] = '<meta name="og:description" content="'.$get_meta->row()->meta_desc.'">';
+            $res[] = '<meta name="og:image" content="'.$path.'">';
+			$data['meta_addon'] = $res;
+			return $res;
+		}
 	}
 ?>
