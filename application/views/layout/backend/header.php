@@ -117,6 +117,20 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#">
+                                <i class="far fa-clipboard fa-fw"></i> Meta<span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url() ?>Administrator/meta_list">Data Meta</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url() ?>Administrator/add_meta">Tambah Meta</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="<?php echo base_url() ?>Administrator/applicant_list">
                                 <i class="fa fa-vcard-o fa-fw"></i> Applicant List
                             </a>

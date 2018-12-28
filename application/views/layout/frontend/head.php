@@ -8,13 +8,18 @@
     <meta name="author" content="Kaisha">
     <link rel="icon" href="<?php echo base_url();?>assets/img/icon.ico"/>
     <!-- Twitter Card data -->
-    <meta name="twitter:card" value="summary">
+    <!-- <meta name="twitter:card" value="summary"> -->
     <!-- Open Graph data -->
-    <meta property="og:title" content="PT Kreasi Cipta Tritunggal" />
-    <meta property="og:type" content="article" />
+    <!-- <meta property="og:title" content="PT Kreasi Cipta Tritunggal" /> -->
+    <!-- <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.tritunggalmetalworks.com/" />
-    <meta property="og:image" content="<?php echo base_url();?>assets/img/tritunggal.png" />
-    <meta property="og:description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction" />
+    <meta property="og:image" content="<?php echo base_url();?>assets/img/tritunggal.png" /> -->
+    <!-- <meta property="og:description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction" /> -->
+    <?php 
+         foreach ($meta_add as $key) {
+                 echo $key."\n";
+         }
+    ?>
     <title><?php echo $title ; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
