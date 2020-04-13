@@ -53,6 +53,13 @@
 			$this->load->view('layout/frontend/wrapper',$data);
 		}
 
+		public function homeBaru() {
+			$data['title']='Tritunggal Metalworks';
+			$data['ctn']='menu/frontend/new/homes';
+			// $data['meta_add'] = $this->meta_social(2);
+			$this->load->view('layout/frontend/wrapper-new',$data);	
+		}
+
 		public function history()
 		{
 			$data['title']='Tritunggal Metalworks';
@@ -69,12 +76,13 @@
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 		
-		public function partners()
-		{
+		public function partners() {
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
-			$data['meta_add'] = $this->meta_social(2);
-			$this->load->view('layout/frontend/wrapper',$data);	
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/partner';
+			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 
 		public function managements()
@@ -463,12 +471,13 @@
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
-		public function contact_us()
-		{
+		public function contact_us() {
 			$data['title']='Tritunggal Metalworks';
-			$data['isi']='menu/frontend/contact';
-			$data['meta_add'] = $this->meta_social(2);
-			$this->load->view('layout/frontend/wrapper',$data);	
+			// $data['isi']='menu/frontend/contact';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/contact';
+			$this->load->view('layout/frontend/wrapper-new',$data);	
 		}
 
 		public function contactus_send()
