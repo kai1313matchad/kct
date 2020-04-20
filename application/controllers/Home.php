@@ -10,7 +10,7 @@
 		}				
 
 		//List Menu
-		public function index()
+		public function homeLama()
 		{
 			//web banner
 			$banner='web_banner';
@@ -53,7 +53,7 @@
 			$this->load->view('layout/frontend/wrapper',$data);
 		}
 
-		public function homeBaru() {
+		public function index() {
 			$data['title']='Tritunggal Metalworks';
 			$data['ctn']='menu/frontend/new/homes';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -74,6 +74,33 @@
 			$data['isi']='menu/frontend/vismis';
 			$data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper',$data);	
+		}
+
+		public function aboutCompany() {
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/partners';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/about-company';
+			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function aboutHistory() {
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/partners';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/about-history';
+			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function aboutTeam() {
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/partners';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/about-team';
+			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 		
 		public function partners() {
@@ -556,8 +583,14 @@
 			$this->load->view('layout/frontend/wrapper',$data);	
 		}
 
-		public function news_list()
-		{
+		public function servicesList() {
+			$data['title']='Tritunggal Metalworks';
+			$data['ctn']='menu/frontend/new/services-list';
+			// $data['meta_add'] = $this->meta_social(2);
+			$this->load->view('layout/frontend/wrapper-new',$data);	
+		}
+
+		public function projectList() {
 			$table='news';
 			$order='id_news';
 			$spe='judul';
@@ -594,8 +627,62 @@
 		    $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/news';
-			$data['meta_add'] = $this->meta_artikel(3);
-			$this->load->view('layout/frontend/wrapper',$data);	
+			// $data['meta_add'] = $this->meta_artikel(3);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/projects-list';
+			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function news_list() {
+			$table='news';
+			$order='id_news';
+			$spe='judul';
+			$srch='';
+			//pagination settings
+			$config['base_url'] = site_url('Home/news_list/');
+		    $config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
+		    $config['per_page'] = "5";
+		    $config["uri_segment"] = 3;
+		    $choice = $config["total_rows"]/$config["per_page"];
+		    $config["num_links"] = floor($choice);
+		    // integrate bootstrap pagination
+		    $config['full_tag_open'] = '<ul class="pagination">';
+		    $config['full_tag_close'] = '</ul>';
+		    $config['first_link'] = false;
+		    $config['last_link'] = false;
+		    $config['first_tag_open'] = '<li>';
+		    $config['first_tag_close'] = '</li>';
+		    $config['prev_link'] = '«';
+		    $config['prev_tag_open'] = '<li class="prev">';
+		    $config['prev_tag_close'] = '</li>';
+		    $config['next_link'] = '»';
+		    $config['next_tag_open'] = '<li>';
+		    $config['next_tag_close'] = '</li>';
+		    $config['last_tag_open'] = '<li>';
+		    $config['last_tag_close'] = '</li>';
+		    $config['cur_tag_open'] = '<li class="active"><a href="#">';
+		    $config['cur_tag_close'] = '</a></li>';
+		    $config['num_tag_open'] = '<li>';
+		    $config['num_tag_close'] = '</li>';
+		    $this->pagination->initialize($config);
+		    $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		    $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
+		    $data['pagination'] = $this->pagination->create_links();
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/news';
+			// $data['meta_add'] = $this->meta_artikel(3);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/news-list';
+			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function newsTest() {
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/partners';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/news-detail';
+			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 
 		public function news_detail()

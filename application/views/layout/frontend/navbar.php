@@ -38,33 +38,28 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url();?>Home/homeBaru">HOME</a>
+                  <a class="nav-link" href="<?= base_url();?>Home">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT US</a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="about-company.html">OUR COMPANY</a>
-                    <a class="dropdown-item" href="about-history.html">COMPANY HISTORY</a>
-                    <a class="dropdown-item" href="about-team.html">OUR TEAM</a>
+                    <a class="dropdown-item" href="<?= base_url();?>Home/aboutCompany">OUR COMPANY</a>
+                    <a class="dropdown-item" href="<?= base_url();?>Home/aboutHistory">COMPANY HISTORY</a>
+                    <a class="dropdown-item" href="<?= base_url();?>Home/aboutTeam">OUR TEAM</a>
                     <a class="dropdown-item" href="<?= base_url();?>Home/partners">OUR PARTNERS</a>
                   </div>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PROJECTS</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="project.html">GRID LAYOUT</a>
-                    <a class="dropdown-item" href="project-detail.html">SINGLE PROJECT</a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NEWS</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="news.html">GRID BAR</a>
-                    <a class="dropdown-item" href="news-single.html">SINGLE NEWS</a>
-                  </div>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= base_url()?>Home/servicesList">SERVICES</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>home/contact_us">CONTACT</a>
+                  <a class="nav-link" href="<?= base_url()?>Home/projectList">PROJECTS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= base_url()?>Home/news_list">NEWS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= base_url()?>Home/contact_us">CONTACT</a>
                 </li>
               </ul>
             </div>

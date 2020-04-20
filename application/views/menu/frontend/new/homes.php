@@ -58,8 +58,8 @@
 							  </div>
 						  </div>
 						  <blockquote class="quote">
-							  <p class="uk18">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							  <footer class="blockquote-footer">Carol Mongol <cite title="Source Title">Head Of Operations</cite></footer>
+							  <p class="uk18">Simplicity is intellectually more elegant.</p>
+							  <footer class="blockquote-footer">Vico Magistretti <cite title="Source Title">Industrial Designer</cite></footer>
 						  </blockquote>
 						  <div class="spacer-content"></div>
 					  </div>
@@ -77,10 +77,10 @@
 						  <div class="jumbo-heading text-primary">Reliable Engineering Takes Many Forms</div>
 						  <p class="mt-3 uk21 mb-0">Our Combined Experience</p>
 					  </div>
-					  <div class="col-sm-12 col-md-12 col-lg-5">
+					  <!-- <div class="col-sm-12 col-md-12 col-lg-5">
 						  <p class="font-weight-bold">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum labore et dolore magna.</p>
 						  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum eiusmod tempor incididunt ut labore et dolore magna.</p>
-					  </div>
+					  </div> -->
 				  </div>
 			  </div>
 		  </div>
@@ -108,7 +108,7 @@
 				  <div class="row">
 					  <div class="col-sm-12 col-md-12">
 						  <h2 class="section-heading text-primary no-after mb-5">SERVICES</h2>
-						  <p class="subheading">We provide high standar clean website for your business solutions</p>
+						  <p class="subheading">We provide high standard for your business solutions</p>
 					  </div>
 				  </div>
 				  <div class="row mt-5">
@@ -116,14 +116,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-billboard.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Mechanical Engineering</div>
-										  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Billboard</div>
+										  <p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -133,14 +133,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-canopy.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Agricultural Processing</div>
-										  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Canopy</div>
+										  <p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -150,14 +150,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-letter.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Oils And Lubricants</div>
-										  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Letter Sign</div>
+										  <p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -167,14 +167,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-fascia.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Power And Energy</div>
-										  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Fascia Billboard</div>
+										  <p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -184,14 +184,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-signage.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Chemical Research</div>
-										  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Signage</div>
+										  <p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -201,14 +201,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid"></a>
+								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-container.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
-										  <div class="title">Material Engineering</div>
-									  	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been. </p>
-										  <a href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <div class="title">Container</div>
+									  	<p></p>
+										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -220,7 +220,7 @@
 	  </div>
 
 	  <!-- OUR TESTIMONIALS -->
-	  <div class="section bg-gray-light bgi-cover-center" data-background="<?= base_url()?>assets/v1/images/testmonial-back.png">
+	  <!-- <div class="section bg-gray-light bgi-cover-center" data-background="<?= base_url()?>assets/v1/images/testmonial-back.png">
 		  <div class="content-wrap">
 			  <div class="container">
 				  <div class="row">
@@ -232,7 +232,6 @@
 				  <div class="row">
 					  <div class="col-sm-12 col-md-12 col-lg-12">
 						  <div id="carousel3" class="owl-carousel owl-theme">
-							  <!-- Item 1 -->
 							  <div class="item">
 								  <div class="rs-box-testimony">
 									  <div class="media-box">
@@ -248,7 +247,6 @@
 									  </div>
 								  </div>
 							  </div>
-							  <!-- Item 2 -->
 							  <div class="item">
 								  <div class="rs-box-testimony">
 									  <div class="media-box">
@@ -264,7 +262,6 @@
 									  </div>
 								  </div>
 							  </div>
-							  <!-- Item 3 -->
 							  <div class="item">
 								  <div class="rs-box-testimony">
 									  <div class="media-box">
@@ -285,14 +282,14 @@
 				  </div>
 			  </div>
 		  </div>
-	  </div>
+	  </div> -->
 
 	  <!-- FACT -->
 	  <div class="section bgi-cover-center bg-overlay-primary" data-background="<?= base_url()?>assets/v1/images/1920x900/1920x900-4.jpg">
 		  <div class="content-wrap">
 			  <div class="container">
 				  <div class="row">
-					  <div class="col-sm-3 col-md-3">
+					  <!-- <div class="col-sm-3 col-md-3">
 						  <div class="box-stat">
 							  <div class="icon">
 								  <div class="fa fa-users"></div>
@@ -309,7 +306,8 @@
 							  <h2 class="counter">16+</h2>
 							  <p>Offices Worldwide</p>
 						  </div>
-					  </div>
+						</div> -->
+						<div class="col-sm-3 col-md-3"></div>
 					  <div class="col-sm-3 col-md-3">
 						  <div class="box-stat">
 							  <div class="icon">
@@ -324,7 +322,7 @@
 							  <div class="icon">
 								  <div class="fa fa-briefcase"></div>
 							  </div>
-							  <h2 class="counter">433+</h2>
+							  <h2 class="counter">100+</h2>
 							  <p>PROJECTS</p>
 						  </div>
 					  </div>
@@ -340,7 +338,7 @@
 				  <div class="row">
 					  <div class="col-sm-12 col-md-12">
 						  <h2 class="section-heading text-primary mb-5">RECENT NEWS</h2>
-						  <p class="subheading">We provide high standar clean website for your business solutions</p>
+						  <p class="subheading">We provide high standard for your business solutions</p>
 				  	</div>
 				  </div>
 				  <div class="row mt-4">
@@ -349,7 +347,7 @@
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
-                    <img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
+                    <img src="<?= base_url()?>assets/v1/images/600x500/600x500-1.jpg" alt="" class="img-fluid">
                   </a>
                 </div>
                 <div class="body">
@@ -364,7 +362,7 @@
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
-                    <img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
+                    <img src="<?= base_url()?>assets/v1/images/600x500/600x500-2.jpg" alt="" class="img-fluid">
                   </a>
                 </div>
                 <div class="body">
@@ -379,7 +377,7 @@
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
-                    <img src="<?= base_url()?>assets/v1/images/dummy-img-600x500.jpg" alt="" class="img-fluid">
+                    <img src="<?= base_url()?>assets/v1/images/600x500/600x500-3.jpg" alt="" class="img-fluid">
                   </a>
                 </div>
                 <div class="body">
@@ -395,33 +393,7 @@
 	  </div>
 
 	  <!-- OUR PARTNERS -->
-	  <div class="section">
-		  <div class="content-wrap">
-			  <div class="container">
-          <div class="row gutter-5">
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client1.png" alt="" class="img-fluid img-border"></a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client2.png" alt="" class="img-fluid img-border"></a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client3.png" alt="" class="img-fluid img-border"></a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client4.png" alt="" class="img-fluid img-border"></a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client5.png" alt="" class="img-fluid img-border"></a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-              <a href="#"><img src="<?= base_url()?>assets/v1/images/client6.png" alt="" class="img-fluid img-border"></a>
-            </div>
-
-          </div>
-			  </div>
-		  </div>
-	  </div>
+	  <?php include 'application/views/layout/frontend/partners.php' ?>
 
 	  <!-- CTA -->
 	  <?php include 'application/views/layout/frontend/cta.php' ?>

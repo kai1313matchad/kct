@@ -456,7 +456,14 @@ a {
   a:hover {
     color: #006190;
     text-decoration: none; }
-
+.text-href {
+  color: #ffa41b;
+  text-decoration: none;
+}
+.text-href:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
 /* 1.4. HEADING & PARAGRAPH */
 p {
   margin: 0 0 20px 0; }

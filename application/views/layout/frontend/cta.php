@@ -37,7 +37,7 @@
                       </div>
                       <div class="info-text">
                         <h4>Contact Email</h4>
-                        admin@tritunggalmetalworks.com
+                        admin <br/> @tritunggalmetalworks.com
                       </div>
                     </div>
                   </div>

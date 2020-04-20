@@ -8,7 +8,7 @@
 					  </div>
 					  <nav aria-label="breadcrumb">
 					    <ol class="breadcrumb ">
-					      <li class="breadcrumb-item"><a href="<?= base_url();?>">Home</a></li>
+					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
 					      <li class="breadcrumb-item active" aria-current="page">Our Partners</li>
 					    </ol>
 					  </nav>
@@ -29,72 +29,36 @@
 						    <div class="item">
                   <div class="box-image">
                     <div class="client-img">
-                      <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
+                      <a href="https://www.eseled.com" target="__blank"><img src="<?= base_url();?>assets/v1/images/600x400/partners-1.jpg" alt="" class="img-fluid"></a>
                     </div>
                   </div>
                   <div class="box-info">
-                    <div class="heading">BRIX - Mobile App landing page HTML Template</div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="heading">eSeLED - LED Distributors</div>
+                    <p>PT. Raja Cahaya Prima as known as eSeLED is largest LED distributor in Surabaya that has established for more than 27 years, we provide a variety of efficient LEDs to meet customer needs.</p>
                   </div>
 						    </div>
 						    <!-- item 2 -->
 						    <div class="item">
 							    <div class="box-image">
 								    <div class="client-img">
-									    <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
+									    <a href="https://www.matchadonline.com" target="__blank"><img src="<?= base_url();?>assets/v1/images/600x400/partners-2.jpg" alt="" class="img-fluid"></a>
 								    </div>
 							    </div>
 							    <div class="box-info">
-								    <div class="heading">Alife - Wedding Invitation HTML Template</div>
-								    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								    <div class="heading">Match Advertising - Advertising Agency</div>
+								    <p>PT. Multi Artistikacithra Advertising as known as Match-Ad is advertising agency in Surabaya that has established for more than 27 years, we provide the effective promotion services for fulfill clients needs to introduce, communicate and promoting their products to the public market.</p>
 							    </div>
 						    </div>
                 <!-- item 3 -->
                 <div class="item">
                   <div class="box-image">
                     <div class="client-img">
-                      <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
+                      <a href="https://www.wiperindonesia.com" target="__blank"><img src="<?= base_url();?>assets/v1/images/600x400/partners-3.jpg" alt="" class="img-fluid"></a>
                     </div>
                   </div>
                   <div class="box-info">
-                    <div class="heading">KNOX - App Landing Page HTML Template</div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-						    <!-- item 4 -->
-                <div class="item">
-                  <div class="box-image">
-                    <div class="client-img">
-                      <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
-                    </div>
-                  </div>
-                  <div class="box-info">
-                    <div class="heading">OREN - Responsive Multi-purpose HTML Template</div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-                <!-- item 5 -->
-                <div class="item">
-                  <div class="box-image">
-                    <div class="client-img">
-                      <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
-                    </div>
-                  </div>
-                  <div class="box-info">
-                    <div class="heading">FitX - Fitness & Gym HTML Template</div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-                <!-- item 6 -->
-                <div class="item">
-                  <div class="box-image">
-                    <div class="client-img">
-                      <a href="#"><img src="<?= base_url();?>assets/v1/images/dummy-img-600x400.jpg" alt="" class="img-fluid"></a>
-                    </div>
-                  </div>
-                  <div class="box-info">
-                    <div class="heading">LAWE - Lawyer and Attorney HTML Template</div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="heading">Wiperindonesia - Construction Agency</div>
+                    <p>PT. Wijaya Persada Indonesia is a contracting service company in Surabaya. Provides steel construction services, civil works, warehouse construction, house construction, home renovation, painting services and all construction.</p>
                   </div>
                 </div>
 					    </div>
