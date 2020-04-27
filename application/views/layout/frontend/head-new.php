@@ -7,7 +7,7 @@
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tritunggal Metalworks</title>
-    <meta name="description" content="Induse is designed for industrial, oil and gas, manufacturing, mechanical, power and energy, engineering & Multipurpose Business. This template has beautifull and unique design that will be best suited for your online web presence. It has 100% responsive design and tested on all major handheld devices.">
+    <meta name="description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction">
     <meta name="keywords" content="business, engineering, industrial, manufacturing, mechanical, multipurpose, oil and gas, Power and Energy">
     <meta name="author" content="rometheme.net"> 
 	

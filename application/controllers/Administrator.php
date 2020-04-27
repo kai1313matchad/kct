@@ -361,16 +361,14 @@
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function add_products()
-		{
+		public function add_products() {
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/backend/products_add';
 			$data['error']=$this->upload->display_errors();
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function edit_products()
-		{
+		public function edit_products() {
 			$id=$this->uri->segment(3);
 			$id_table='id_product';
 			$table='products';
@@ -381,45 +379,42 @@
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function insert_products()
-		{
-			$this->form_validation->set_rules('nama','Nama Produk','required');
+		public function insert_products() {
+			$this->form_validation->set_rules('nama','Nama Project','required');
+			$this->form_validation->set_rules('klien','Nama Klien','required');
+			$this->form_validation->set_rules('lokasi','Lokasi Project','required');
 			$this->form_validation->set_rules('caption','Caption','required');
 			$this->form_validation->set_rules('tgl','Tanggal','required');
 			$this->form_validation->set_message('required', '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi, Isi Terlebih Dahulu!!!</strong></div></div>');
 			$table='products';
-			$minwidth='500';
-			$minheight='500';
+			$minwidth='900';
+			$minheight='600';
 			$path='./assets/uploads/products/';
 			$this->configImg($path,$minwidth,$minheight);
-			if($this->form_validation->run() === FALSE)
-			{
+			if($this->form_validation->run() === FALSE) {
 				$this->add_products();
 			}
-			else
-			{
-				if(!$this->upload->do_upload('img'))
-				{
+			else {
+				if(!$this->upload->do_upload('img')) {
 					$this->add_products();
 				}
-				else
-				{
+				else {
 					$fileinfo=$this->upload->data();
-					$data=array
-					(
+					$data=array (
 						'nama'=>$this->input->post('nama'),
+						'url'=>url_title(strtolower($this->input->post('nama')." ".$this->input->post('lokasi')." ".time())),
+						'klien'=>$this->input->post('klien'),
+						'lokasi'=>$this->input->post('lokasi'),
 						'kategori'=>$this->input->post('ktg'),
 						'caption'=>$this->input->post('caption'),
 						'tanggal'=>$this->input->post('tgl'),						
 						'path'=>$fileinfo['file_name']
 					);					
 					$res = $this->M_adm->insert_data($table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
 					}
 					$this->load->vars($data);
@@ -428,9 +423,10 @@
 			}
 		}
 
-		public function update_products()
-		{
+		public function update_products() {
 			$this->form_validation->set_rules('nama','Nama Produk','required');
+			$this->form_validation->set_rules('klien','Nama Klien','required');
+			$this->form_validation->set_rules('lokasi','Lokasi Project','required');
 			$this->form_validation->set_rules('caption','Caption','required');
 			$this->form_validation->set_rules('tgl','Tanggal','required');
 			$this->form_validation->set_message('required', '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi, Isi Terlebih Dahulu!!!</strong></div></div>');
@@ -442,32 +438,28 @@
 			$minheight='500';
 			$path='./assets/uploads/products/';
 			$this->configImg($path,$minwidth,$minheight);
-			if($this->form_validation->run() === FALSE)
-			{
+			if($this->form_validation->run() === FALSE) {
 				$data['title']='Tritunggal Metalworks';
 				$data['isi']='menu/backend/products_edit';
 				$data['data']=$this->M_adm->get_edit_data($table,$id_table,$id);
 				$data['error']=$this->upload->display_errors();
 				$this->load->view('layout/backend/wrapper',$data);	
 			}
-			else
-			{
-				if(!$this->upload->do_upload('img'))
-				{
-					$data=array
-					(
+			else {
+				if(!$this->upload->do_upload('img')) {
+					$data=array (
 						'kategori'=>$this->input->post('ktg'),
 						'nama'=>$this->input->post('nama'),
+						'klien'=>$this->input->post('klien'),
+						'lokasi'=>$this->input->post('lokasi'),
 						'tanggal'=>$this->input->post('tgl'),
 						'caption'=>$this->input->post('caption')
 					);
 					$res = $this->M_adm->update_data($table,$id,$id_table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';	
 					}					
 					$data['title']='Tritunggal Metalworks';
@@ -476,25 +468,23 @@
 					$data['error']=$this->upload->display_errors();
 					$this->load->view('layout/backend/wrapper',$data);
 				}
-				else
-				{
+				else {
 					$fileinfo=$this->upload->data();
-					$data=array
-					(
+					$data=array (
 						'kategori'=>$this->input->post('ktg'),
 						'nama'=>$this->input->post('nama'),
+						'klien'=>$this->input->post('klien'),
+						'lokasi'=>$this->input->post('lokasi'),
 						'tanggal'=>$this->input->post('tgl'),
 						'caption'=>$this->input->post('caption'),
 						'path'=>$fileinfo['file_name']
 					);
 					@unlink('./assets/uploads/products/'.$img_path);
 					$res = $this->M_adm->update_data($table,$id,$id_table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';	
 					}
 					$data['title']='Tritunggal Metalworks';
@@ -506,8 +496,7 @@
 			}
 		}
 
-		public function delete_products()
-		{
+		public function delete_products() {
 			$id=$this->uri->segment(3);
 			$img_path=$this->uri->segment(4);	
 			$id_table='id_product';
@@ -518,48 +507,46 @@
 		}
 
 		//news
-		public function news_list()
-		{
+		public function news_list() {
 			$table='news';
 			$order='id_news';
 			//pagination settings
 			$config['base_url'] = site_url('Administrator/news_list/');
-		    $config['total_rows'] = $this->db->count_all('news');
-		    $config['per_page'] = "5";
-		    $config["uri_segment"] = 3;
-		    $choice = $config["total_rows"]/$config["per_page"];
-		    $config["num_links"] = floor($choice);
-		    // integrate bootstrap pagination
-		    $config['full_tag_open'] = '<ul class="pagination">';
-		    $config['full_tag_close'] = '</ul>';
-		    $config['first_link'] = false;
-		    $config['last_link'] = false;
-		    $config['first_tag_open'] = '<li>';
-		    $config['first_tag_close'] = '</li>';
-		    $config['prev_link'] = '«';
-		    $config['prev_tag_open'] = '<li class="prev">';
-		    $config['prev_tag_close'] = '</li>';
-		    $config['next_link'] = '»';
-		    $config['next_tag_open'] = '<li>';
-		    $config['next_tag_close'] = '</li>';
-		    $config['last_tag_open'] = '<li>';
-		    $config['last_tag_close'] = '</li>';
-		    $config['cur_tag_open'] = '<li class="active"><a href="#">';
-		    $config['cur_tag_close'] = '</a></li>';
-		    $config['num_tag_open'] = '<li>';
-		    $config['num_tag_close'] = '</li>';
-		    $this->pagination->initialize($config);
-		    $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-		    $data['listdata'] = $this->M_adm->get_pagination_data($table,$order,$config["per_page"], $data['page']);
-		    $data['pagination'] = $this->pagination->create_links();
+		  $config['total_rows'] = $this->db->count_all('news');
+		  $config['per_page'] = "5";
+		  $config["uri_segment"] = 3;
+		  $choice = $config["total_rows"]/$config["per_page"];
+		  $config["num_links"] = floor($choice);
+		  // integrate bootstrap pagination
+		  $config['full_tag_open'] = '<ul class="pagination">';
+		  $config['full_tag_close'] = '</ul>';
+		  $config['first_link'] = false;
+		  $config['last_link'] = false;
+		  $config['first_tag_open'] = '<li>';
+		  $config['first_tag_close'] = '</li>';
+		  $config['prev_link'] = '«';
+		  $config['prev_tag_open'] = '<li class="prev">';
+		  $config['prev_tag_close'] = '</li>';
+		  $config['next_link'] = '»';
+		  $config['next_tag_open'] = '<li>';
+		  $config['next_tag_close'] = '</li>';
+		  $config['last_tag_open'] = '<li>';
+		  $config['last_tag_close'] = '</li>';
+		  $config['cur_tag_open'] = '<li class="active"><a href="#">';
+		  $config['cur_tag_close'] = '</a></li>';
+		  $config['num_tag_open'] = '<li>';
+		  $config['num_tag_close'] = '</li>';
+		  $this->pagination->initialize($config);
+		  $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		  $data['listdata'] = $this->M_adm->get_pagination_data($table,$order,$config["per_page"], $data['page']);
+		  $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/backend/news_data';
 			$data['total']=$this->db->count_all('news');
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function news_search()
-		{
+		public function news_search() {
 			$srch = ($this->input->post("cari")) ? $this->input->post("cari") : "NULL";
 			$srch = ($this->uri->segment(3)) ? $this->uri->segment(3) : $srch;
 			$table='news';
@@ -567,50 +554,48 @@
 			$spe='judul';
 			//pagination settings
 			$config['base_url'] = site_url("Administrator/news_search/$srch");
-		    $config['total_rows'] = $this->M_adm->count_pagdata($table,$spe,$srch);
-		    $config['per_page'] = "5";
-		    $config["uri_segment"] = 4;
-		    $choice = $config["total_rows"]/$config["per_page"];
-		    $config["num_links"] = floor($choice);		    		    		  
-		    // integrate bootstrap pagination
-		    $config['full_tag_open'] = '<ul class="pagination">';
-		    $config['full_tag_close'] = '</ul>';
-		    $config['first_link'] = false;
-		    $config['last_link'] = false;
-		    $config['first_tag_open'] = '<li>';
-		    $config['first_tag_close'] = '</li>';
-		    $config['prev_link'] = '«';
-		    $config['prev_tag_open'] = '<li class="prev">';
-		    $config['prev_tag_close'] = '</li>';
-		    $config['next_link'] = '»';
-		    $config['next_tag_open'] = '<li>';
-		    $config['next_tag_close'] = '</li>';
-		    $config['last_tag_open'] = '<li>';
-		    $config['last_tag_close'] = '</li>';
-		    $config['cur_tag_open'] = '<li class="active"><a href="#">';
-		    $config['cur_tag_close'] = '</a></li>';
-		    $config['num_tag_open'] = '<li>';
-		    $config['num_tag_close'] = '</li>';
-		    $this->pagination->initialize($config);
-		    $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-		    $data['listdata'] = $this->M_adm->get_srch_pag_data($table,$order,$spe,$config["per_page"], $data['page'], $srch);
-		    $data['pagination'] = $this->pagination->create_links();		    
+		  $config['total_rows'] = $this->M_adm->count_pagdata($table,$spe,$srch);
+		  $config['per_page'] = "5";
+		  $config["uri_segment"] = 4;
+		  $choice = $config["total_rows"]/$config["per_page"];
+		  $config["num_links"] = floor($choice);		    		    		  
+		  // integrate bootstrap pagination
+		  $config['full_tag_open'] = '<ul class="pagination">';
+		  $config['full_tag_close'] = '</ul>';
+		  $config['first_link'] = false;
+		  $config['last_link'] = false;
+		  $config['first_tag_open'] = '<li>';
+		  $config['first_tag_close'] = '</li>';
+		  $config['prev_link'] = '«';
+		  $config['prev_tag_open'] = '<li class="prev">';
+		  $config['prev_tag_close'] = '</li>';
+		  $config['next_link'] = '»';
+		  $config['next_tag_open'] = '<li>';
+		  $config['next_tag_close'] = '</li>';
+		  $config['last_tag_open'] = '<li>';
+		  $config['last_tag_close'] = '</li>';
+		  $config['cur_tag_open'] = '<li class="active"><a href="#">';
+		  $config['cur_tag_close'] = '</a></li>';
+		  $config['num_tag_open'] = '<li>';
+		  $config['num_tag_close'] = '</li>';
+		  $this->pagination->initialize($config);
+		  $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+		  $data['listdata'] = $this->M_adm->get_srch_pag_data($table,$order,$spe,$config["per_page"], $data['page'], $srch);
+		  $data['pagination'] = $this->pagination->create_links();		    
 			$data['total']=$this->M_adm->count_pagdata($table,$spe,$srch);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/backend/news_data';			
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function add_news()
-		{
+		public function add_news() {
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/backend/news_add';
 			$data['error']=$this->upload->display_errors();
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function edit_news()
-		{
+		public function edit_news() {
 			$id=$this->uri->segment(3);
 			$id_table='id_news';
 			$table='news';
@@ -621,46 +606,39 @@
 			$this->load->view('layout/backend/wrapper',$data);
 		}
 
-		public function insert_news()
-		{
+		public function insert_news() {
 			$this->form_validation->set_rules('judul','Judul Artikel','required');
 			$this->form_validation->set_rules('kutip','Kutipan Artikel','required');
 			$this->form_validation->set_rules('isi','Isi Artikel','required');
 			$this->form_validation->set_rules('tgl','Tanggal','required');
 			$this->form_validation->set_message('required', '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi, Isi Terlebih Dahulu!!!</strong></div></div>');
 			$table='news';
-			$minwidth='500';
-			$minheight='500';
+			$minwidth='900';
+			$minheight='600';
 			$path='./assets/uploads/news/';
 			$this->configImg($path,$minwidth,$minheight);
-			if($this->form_validation->run() === FALSE)
-			{
+			if($this->form_validation->run() === FALSE) {
 				$this->add_products();
 			}
-			else
-			{
-				if(!$this->upload->do_upload('img'))
-				{
+			else {
+				if(!$this->upload->do_upload('img')) {
 					$this->add_news();
 				}
-				else
-				{
+				else {
 					$fileinfo=$this->upload->data();
-					$data=array
-					(
+					$data=array (
 						'judul'=>$this->input->post('judul'),
+						'url'=>url_title(strtolower($this->input->post('judul')." ".time())),
 						'kutipan'=>$this->input->post('kutip'),
 						'isi'=>$this->input->post('isi'),
 						'tanggal'=>$this->input->post('tgl'),						
 						'path'=>$fileinfo['file_name']
 					);					
 					$res = $this->M_adm->insert_data($table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
 					}
 					$this->load->vars($data);
@@ -669,8 +647,7 @@
 			}
 		}
 
-		public function update_news()
-		{
+		public function update_news() {
 			$this->form_validation->set_rules('judul','Judul Artikel','required');
 			$this->form_validation->set_rules('kutip','Kutipan Artikel','required');
 			$this->form_validation->set_rules('isi','Isi Artikel','required');
@@ -684,45 +661,37 @@
 			$minheight='500';
 			$path='./assets/uploads/news/';
 			$this->configImg($path,$minwidth,$minheight);
-			if($this->form_validation->run() === FALSE)
-			{
+			if($this->form_validation->run() === FALSE) {
 				$data['title']='Tritunggal Metalworks';
 				$data['isi']='menu/backend/news_edit';
 				$data['data']=$this->M_adm->get_edit_data($table,$id_table,$id);
 				$data['error']=$this->upload->display_errors();
 				$this->load->view('layout/backend/wrapper',$data);	
 			}
-			else
-			{
-				if(!$this->upload->do_upload('img'))
-				{
-					$data=array
-					(
+			else {
+				if(!$this->upload->do_upload('img')) {
+					$data=array (
 						'judul'=>$this->input->post('judul'),
 						'kutipan'=>$this->input->post('kutip'),
 						'isi'=>$this->input->post('isi'),
 						'tanggal'=>$this->input->post('tgl')						
 					);
 					$res = $this->M_adm->update_data($table,$id,$id_table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';	
-					}					
+					}
 					$data['title']='Tritunggal Metalworks';
 					$data['isi']='menu/backend/news_edit';
 					$data['data']=$this->M_adm->get_edit_data($table,$id_table,$id);
 					$data['error']=$this->upload->display_errors();
 					$this->load->view('layout/backend/wrapper',$data);
 				}
-				else
-				{
+				else {
 					$fileinfo=$this->upload->data();
-					$data=array
-					(
+					$data=array (
 						'judul'=>$this->input->post('judul'),
 						'kutipan'=>$this->input->post('kutip'),
 						'isi'=>$this->input->post('isi'),
@@ -731,12 +700,10 @@
 					);
 					@unlink('./assets/uploads/news/'.$img_path);
 					$res = $this->M_adm->update_data($table,$id,$id_table,$data);
-					if($res == '0')
-					{
+					if($res == '0') {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
 					}
-					else
-					{
+					else {
 						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';	
 					}
 					$data['title']='Tritunggal Metalworks';
@@ -748,8 +715,7 @@
 			}
 		}
 
-		public function delete_news()
-		{
+		public function delete_news() {
 			$id=$this->uri->segment(3);
 			$img_path=$this->uri->segment(4);	
 			$id_table='id_news';
@@ -1388,14 +1354,13 @@
 		}
 
 		//image config		
-		public function configImg($path,$minwidth,$minheight)
-		{
+		public function configImg($path,$minwidth,$minheight) {
 			$nmfile='img_'.time();
 			$config['upload_path']=$path;
-			$config['allowed_types']='jpg|jpeg|png|gif';
+			$config['allowed_types']='jpg|jpeg';
 			$config['max_size']='3000';
-			$config['max_width']='2000';
-			$config['max_height']='2000';
+			$config['max_width']='1800';
+			$config['max_height']='1200';
 			$config['min_width']=$minwidth;
 			$config['min_height']=$minheight;
 			$config['file_name']=$nmfile;

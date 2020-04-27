@@ -22,9 +22,8 @@
     <div class="section">
       <div class="content-wrap">
         <div class="container">
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-12 col-md-12">
-
               <nav class="navfilter">
                 <ul class="portfolio_filter">
                   <li><a href="#" class="active" data-filter="*">All</a></li>
@@ -36,13 +35,29 @@
                   <li><a href="#" data-filter=".container">Container</a></li>
                 </ul>
               </nav>
-
             </div>
-          </div>
+          </div> -->
           <div class="row gutter-5 grid-v1">
             <div class="grid-sizer-v1"></div>
             <div class="gutter-sizer-v1"></div>
-            <div class="col-sm-6 col-md-4 grid-item-v1 eco manufacturing gas">
+            <?php foreach ($listdata as $dt) { ?>
+              <div class="col-sm-6 col-md-4 grid-item-v1 eco manufacturing gas">
+                <div class="box-image-5 shadow">
+                  <a href="<?= base_url();?>project-details/<?= $dt->url;?>" title="Industrial Complex">
+                    <div class="media">
+                      <img src="<?= base_url();?>assets/uploads/products/<?= $dt->path;?>" alt="" class="img-fluid">
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4 class="title"><?= $dt->nama;?></h4>
+                        <span class="category"><?= $dt->kategori;?></span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            <?php }?>
+            <!-- <div class="col-sm-6 col-md-4 grid-item-v1 eco manufacturing gas">
               <div class="box-image-5 shadow">
                 <a href="project-detail.html" title="Industrial Complex">
                   <div class="media">
@@ -176,6 +191,13 @@
                   </div>
                 </a>
               </div>
+            </div> -->
+          </div>
+          <div class="row mt-5">
+            <div class="col-sm-12 col-md-12">
+              <nav aria-label="Page navigation">
+                <?= $pagination; ?>
+              </nav>
             </div>
           </div>
         </div>
@@ -183,7 +205,7 @@
     </div>
 
     <!-- CTA -->
-	  <?php include 'application/views/layout/frontend/cta.php' ?>
+	  <?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
     <!-- FOOTER SECTION -->
     <?php include 'application/views/layout/frontend/footer-new.php' ?>

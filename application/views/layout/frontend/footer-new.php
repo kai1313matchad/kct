@@ -34,11 +34,11 @@
                   Useful Links
                 </div>
                 <ul class="list">
-                  <li><a href="#" title="About Us">About Us</a></li>
-                  <li><a href="#" title="Corporate Profile">Corporate Profile</a></li>
-                  <li><a href="#" title="Our Team">Our Team</a></li>
-                  <li><a href="#" title="Portfolio">Portfolio</a></li>
-                  <li><a href="#" title="Our Office">Our Office</a></li>
+                  <li><a href="<?= base_url();?>about-company" title="About Us">About Us</a></li>
+                  <li><a href="<?= base_url();?>about-history" title="Corporate Profile">Corporate Profile</a></li>
+                  <li><a href="<?= base_url();?>about-team" title="Our Team">Our Team</a></li>
+                  <li><a href="<?= base_url();?>projects" title="Portfolio">Portfolio</a></li>
+                  <li><a href="<?= base_url();?>contact" title="Our Office">Our Office</a></li>
                 </ul>								
               </div>
             </div>

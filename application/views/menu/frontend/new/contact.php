@@ -70,13 +70,13 @@
 							  <div class="row">
 								  <div class="col-sm-6 col-md-6">
 									  <div class="form-group">
-										  <input type="text" class="form-control" id="p_name" placeholder="Enter Name" required="">
+										  <input type="text" class="form-control" id="p_name" placeholder="Enter Name" required="true">
 										  <div class="help-block with-errors"></div>
 									  </div>
 								  </div>
 							  	<div class="col-sm-6 col-md-6">
 									  <div class="form-group">
-										  <input type="email" class="form-control" id="p_email" placeholder="Enter Email" required="">
+										  <input type="email" class="form-control" id="p_email" placeholder="Enter Email" required="true">
 										  <div class="help-block with-errors"></div>
 								  	</div>
 								  </div>
@@ -100,7 +100,7 @@
 							  <div class="form-group">
 								  <div class="text-left">
 									  <div id="success"></div>
-									  <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+									  <button type="button" class="btn btn-primary" onclick="sendMsg()">SEND MESSAGE</button>
 								  </div>
 							  </div>
 						  </form>
@@ -117,6 +117,26 @@
 	  <?php include 'application/views/layout/frontend/footer-new.php' ?>
 
     <?php include 'application/views/layout/frontend/jspack.php' ?>
+		<script>
+			function sendMsg() {
+				$.ajax({
+          url: '<?= base_url();?>Home/sendMsg',
+          type: 'POST',
+          data : $('#contactForm').serialize(),
+          dataType: 'JSON',
+          success: function(data) {
+            if(data.status) {
+              alert("Your Message Has Been Sent, Thank You...");
+							window.location.reload();
+            }
+            else {
+              alert("Ooops Something Wrong!!!");
+							window.location.reload();
+            }
+          }
+        });
+			}
+		</script>
 
 </body>
 </html>

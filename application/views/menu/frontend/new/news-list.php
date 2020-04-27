@@ -22,107 +22,27 @@
       <div class="content-wrap">
         <div class="container">
           <div class="row">
-            <!-- Item 1 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-1.jpg" alt="" class="img-fluid">
-                  </a>
+            <?php foreach ($listdata as $dt) { ?>
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="rs-news-1 mb-5">
+                  <div class="media">
+                    <a href="<?= base_url();?>news-details/<?= $dt->url;?>">
+                      <img src="<?= base_url();?>assets/uploads/news/<?= $dt->path;?>" alt="" class="img-fluid">
+                    </a>
+                  </div>
+                  <div class="body">
+                    <div class="title"><a href="<?= base_url();?>news-details/<?= $dt->url;?>"><?= $dt->judul;?></a></div>
+                    <div class="meta-date"><?= $dt->tanggal;?></div>
+                    <?= $dt->kutipan;?>
+                  </div>
                 </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Occusamus et iusto odio</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
-            <!-- Item 2 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-2.jpg" alt="" class="img-fluid">
-                  </a>
-                </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Deleniti atque corrupti</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
-            <!-- Item 3 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-3.jpg" alt="" class="img-fluid">
-                  </a>
-                </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Voluptatum deleniti atque</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
-            <!-- Item 4 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-3.jpg" alt="" class="img-fluid">
-                  </a>
-                </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Occusamus et iusto odio</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
-            <!-- Item 5 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-2.jpg" alt="" class="img-fluid">
-                  </a>
-                </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Deleniti atque corrupti</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
-            <!-- Item 6 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="rs-news-1 mb-5">
-                <div class="media">
-                  <a href="<?= base_url();?>Home/newsTest">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-1.jpg" alt="" class="img-fluid">
-                  </a>
-                </div>
-                <div class="body">
-                  <div class="title"><a href="<?= base_url();?>Home/newsTest">Voluptatum deleniti atque</a></div>
-                  <div class="meta-date">May 12, 2019</div>
-                  <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
-                </div>
-              </div>
-            </div>
+              </div>              
+            <?php } ?>
           </div>
           <div class="row mt-5">
             <div class="col-sm-12 col-md-12">
               <nav aria-label="Page navigation">
-                <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
+                <?= $pagination;?>
               </nav>
             </div>
           </div>
@@ -131,7 +51,7 @@
     </div>
   
     <!-- CTA -->
-    <?php include 'application/views/layout/frontend/cta.php' ?>
+    <?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
     <!-- FOOTER SECTION -->
     <?php include 'application/views/layout/frontend/footer-new.php' ?>

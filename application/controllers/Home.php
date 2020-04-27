@@ -55,7 +55,7 @@
 
 		public function index() {
 			$data['title']='Tritunggal Metalworks';
-			$data['ctn']='menu/frontend/new/homes';
+			$data['ctn']='menu/frontend/new/homes-ind';
 			// $data['meta_add'] = $this->meta_social(2);
 			$this->load->view('layout/frontend/wrapper-new',$data);	
 		}
@@ -591,40 +591,41 @@
 		}
 
 		public function projectList() {
-			$table='news';
-			$order='id_news';
-			$spe='judul';
+			$table='products';
+			$order='id_product';
+			$spe='kategori';
 			$srch='';
 			//pagination settings
-			$config['base_url'] = site_url('Home/news_list/');
-		    $config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
-		    $config['per_page'] = "5";
-		    $config["uri_segment"] = 3;
-		    $choice = $config["total_rows"]/$config["per_page"];
-		    $config["num_links"] = floor($choice);
-		    // integrate bootstrap pagination
-		    $config['full_tag_open'] = '<ul class="pagination">';
-		    $config['full_tag_close'] = '</ul>';
-		    $config['first_link'] = false;
-		    $config['last_link'] = false;
-		    $config['first_tag_open'] = '<li>';
-		    $config['first_tag_close'] = '</li>';
-		    $config['prev_link'] = '«';
-		    $config['prev_tag_open'] = '<li class="prev">';
-		    $config['prev_tag_close'] = '</li>';
-		    $config['next_link'] = '»';
-		    $config['next_tag_open'] = '<li>';
-		    $config['next_tag_close'] = '</li>';
-		    $config['last_tag_open'] = '<li>';
-		    $config['last_tag_close'] = '</li>';
-		    $config['cur_tag_open'] = '<li class="active"><a href="#">';
-		    $config['cur_tag_close'] = '</a></li>';
-		    $config['num_tag_open'] = '<li>';
-		    $config['num_tag_close'] = '</li>';
-		    $this->pagination->initialize($config);
-		    $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-		    $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
-		    $data['pagination'] = $this->pagination->create_links();
+			$config['base_url'] = base_url().'projects';
+			$config['use_page_numbers'] = TRUE;
+			$config["uri_segment"] = 2;
+			$config['per_page'] = 9;
+			$config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
+		  // $choice = $config["total_rows"]/$config["per_page"];
+		  $config["num_links"] = 4;//floor($choice);
+			// integrate bootstrap pagination
+			$config['attributes'] = array('class'=>'page-link');
+		  $config['full_tag_open'] = '<ul class="pagination">';
+		  $config['full_tag_close'] = '</ul>';
+		  $config['first_tag_open'] = '<li class="page-item">';
+		  $config['first_tag_close'] = '</li>';
+		  $config['prev_link'] = 'Previous';
+		  $config['prev_tag_open'] = '<li class="page-item prev">';
+		  $config['prev_tag_close'] = '</li>';
+		  $config['next_link'] = 'Next';
+		  $config['next_tag_open'] = '<li class="page-item">';
+		  $config['next_tag_close'] = '</li>';
+		  $config['last_tag_open'] = '<li class="page-item">';
+		  $config['last_tag_close'] = '</li>';
+		  $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		  $config['cur_tag_close'] = '</a></li>';
+		  $config['num_tag_open'] = '<li class="page-item">';
+			$config['num_tag_close'] = '</li>';
+			$config['first_url'] = base_url().'projects/1';
+			$this->pagination->initialize($config);
+		  $data['page'] = ($this->uri->segment(2) != 1) ? ($this->uri->segment(2)-1)*9 : 0;
+		  $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
+		  $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/news';
 			// $data['meta_add'] = $this->meta_artikel(3);
@@ -633,41 +634,53 @@
 			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 
+		public function projectDetail() {
+			$uri = $this->uri->segment(2);
+			$data['projectDt']=$this->M_dash->select_data($uri,'products','url');
+			$data['title']='Tritunggal Metalworks';
+			$data['isi']='menu/frontend/partners';
+			// $data['meta_add'] = $this->meta_social(2);
+			// $this->load->view('layout/frontend/wrapper',$data);
+			$data['ctn']='menu/frontend/new/project-details-ind';
+			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
 		public function news_list() {
 			$table='news';
 			$order='id_news';
-			$spe='judul';
+			$spe='kategori';
 			$srch='';
 			//pagination settings
-			$config['base_url'] = site_url('Home/news_list/');
-		    $config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
-		    $config['per_page'] = "5";
-		    $config["uri_segment"] = 3;
-		    $choice = $config["total_rows"]/$config["per_page"];
-		    $config["num_links"] = floor($choice);
-		    // integrate bootstrap pagination
-		    $config['full_tag_open'] = '<ul class="pagination">';
-		    $config['full_tag_close'] = '</ul>';
-		    $config['first_link'] = false;
-		    $config['last_link'] = false;
-		    $config['first_tag_open'] = '<li>';
-		    $config['first_tag_close'] = '</li>';
-		    $config['prev_link'] = '«';
-		    $config['prev_tag_open'] = '<li class="prev">';
-		    $config['prev_tag_close'] = '</li>';
-		    $config['next_link'] = '»';
-		    $config['next_tag_open'] = '<li>';
-		    $config['next_tag_close'] = '</li>';
-		    $config['last_tag_open'] = '<li>';
-		    $config['last_tag_close'] = '</li>';
-		    $config['cur_tag_open'] = '<li class="active"><a href="#">';
-		    $config['cur_tag_close'] = '</a></li>';
-		    $config['num_tag_open'] = '<li>';
-		    $config['num_tag_close'] = '</li>';
-		    $this->pagination->initialize($config);
-		    $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-		    $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
-		    $data['pagination'] = $this->pagination->create_links();
+			$config['base_url'] = base_url().'news';
+			$config['use_page_numbers'] = TRUE;
+			$config["uri_segment"] = 2;
+			$config['per_page'] = 9;
+			$config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
+		  // $choice = $config["total_rows"]/$config["per_page"];
+		  $config["num_links"] = 4;//floor($choice);
+			// integrate bootstrap pagination
+			$config['attributes'] = array('class'=>'page-link');
+		  $config['full_tag_open'] = '<ul class="pagination">';
+		  $config['full_tag_close'] = '</ul>';
+		  $config['first_tag_open'] = '<li class="page-item">';
+		  $config['first_tag_close'] = '</li>';
+		  $config['prev_link'] = 'Previous';
+		  $config['prev_tag_open'] = '<li class="page-item prev">';
+		  $config['prev_tag_close'] = '</li>';
+		  $config['next_link'] = 'Next';
+		  $config['next_tag_open'] = '<li class="page-item">';
+		  $config['next_tag_close'] = '</li>';
+		  $config['last_tag_open'] = '<li class="page-item">';
+		  $config['last_tag_close'] = '</li>';
+		  $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		  $config['cur_tag_close'] = '</a></li>';
+		  $config['num_tag_open'] = '<li class="page-item">';
+			$config['num_tag_close'] = '</li>';
+			$config['first_url'] = base_url().'projects/1';
+			$this->pagination->initialize($config);
+		  $data['page'] = ($this->uri->segment(2) != 1) ? ($this->uri->segment(2)-1)*9 : 0;
+		  $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
+		  $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/news';
 			// $data['meta_add'] = $this->meta_artikel(3);
@@ -676,7 +689,9 @@
 			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 
-		public function newsTest() {
+		public function newsDetail() {
+			$uri = $this->uri->segment(2);
+			$data['newsDt']=$this->M_dash->select_data($uri,'news','url');
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -945,6 +960,27 @@
             $res[] = '<meta name="og:image" content="'.$path.'">';
 			$data['meta_addon'] = $res;
 			return $res;
+		}
+
+		public function sendMsg() {
+			$name = $this->input->post('name');
+			$email = $this->input->post('email');
+			$subject = $this->input->post('subject');
+			$phone = $this->input->post('phone');
+			$message = $this->input->post('message');
+			//simpan message di database
+			$dataMsg = array(
+				'name'=>$name,
+				'email'=>$email,
+				'subject'=>$subject,
+				'phone'=>$phone,
+				'message'=>$message,
+				'created_at'=>time(),
+				'status'=>0
+			);
+			$ins = $this->M_dash->insert_data('messages', $dataMsg);
+			$data["status"] = ($ins == 1)?true:false;
+			echo json_encode($data);
 		}
 	}
 ?>

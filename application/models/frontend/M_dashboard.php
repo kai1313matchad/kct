@@ -19,8 +19,7 @@
 		}
 
 		//insert
-		public function insert_data($table,$data)
-		{
+		public function insert_data($table,$data) {
 			$this->db->insert($table,$data);
 			if($this->db->affected_rows())
 			{
@@ -32,28 +31,24 @@
 			}
 		}
 		
-		public function select_data($id,$table,$idtable)
-		{
+		public function select_data($id,$table,$idtable) {
 			$que=$this->db->get_where($table,array($idtable=>$id));
 			return $que->row_array();
 		}		
 
-		public function get_product_data($table,$order,$spe,$limit,$start,$srch = NULL)
-		{
+		public function get_product_data($table,$order,$spe,$limit,$start,$srch = NULL) {
 			if($srch == "NULL") $srch = "";
 			$sql = "SELECT * FROM ".$table." WHERE ".$spe." LIKE '%$srch%' ORDER BY ".$order." DESC LIMIT " . $start . ", " . $limit;
 			$query = $this->db->query($sql);
 			return $query->result();
 		}
 
-		public function count_product($table,$spe,$srch)
-		{			
-			$que = $this->db->get_where($table, array($spe=>$srch));
+		public function count_product($table,$spe,$srch) {			
+			$que = ($srch == "")?$this->db->get($table):$this->db->get_where($table, array($spe=>$srch));
 			return $que->num_rows();
 		}
 
-		public function admin_data()
-		{
+		public function admin_data() {
 			$que = $this->db->get_where('users', array('username'=>'admin'));
 			return $que->row();
 		}

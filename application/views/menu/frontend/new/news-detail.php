@@ -27,24 +27,17 @@
               <div class="single-news">
                 <div class="media-box">
                   <a href="page-news-single.html">
-                    <img src="<?= base_url();?>assets/v1/images/900x600/900x600-1.jpg" alt="" class="img-fluid">
+                    <img src="<?= base_url();?>assets/uploads/news/<?= $newsDt['path'];?>" alt="" class="img-fluid">
                   </a>
                 </div>
-                <h2 class="title">Ut enim ad minim veniam</h2>
+                <h2 class="title"><?= $newsDt["judul"];?></h2>
                 <div class="meta mb-4">
-                  <div class="meta-date d-inline"><i class="fa fa-clock-o"></i> May 12, 2017</div> <div class="meta-author d-inline">Posted by Rome Doel</div>
+                  <div class="meta-date d-inline"><i class="fa fa-clock-o"></i> <?= $newsDt["tanggal"];?></div> <div class="meta-author d-inline">Posted by Admin</div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <blockquote>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                <footer>Carol Mongol</footer></blockquote>
-                <div class="margin-bottom-50"></div>
-                <p><strong>Ut enim ad minim veniam</strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <?= $newsDt["isi"];?>
               </div>
               <!-- end single blog -->
-              <div class="author-box">
+              <!-- <div class="author-box">
                 <div class="media">
                   <img src="images/dummy-img-400x400.jpg" alt="" class="img-fluid">
                 </div>
@@ -53,34 +46,34 @@
                   We are also create and designing template for categories Graphic template and Game asset. in March 2019, we have won big contest Envato most wanted for categories game assets.
                 </div>
                 <div class="clearfix"></div>
-              </div>
+              </div> -->
               <!-- end author box -->
-              <div class="comments-box">
+              <!-- <div class="comments-box">
                 <h4 class="title-heading">Comments <span>(3)</span></h4>
                 <div class="media comment">
-                  <img class="mr-3" alt="64x64" src="images/dummy-img-400x400.jpg">
+                  <img class="mr-3" alt="64x64" src="<?= base_url();?>assets/v1/images/dummy-img-400x400.jpg">
                   <div class="media-body">
                     <h5 class="media-heading mt-0 mb-1">Susi Doel<small class="date">March 24, 2019</small></h5>
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                   </div>
                 </div>
                 <div class="media reply-comment">
-                  <img class="mr-3" alt="64x64" src="images/dummy-img-400x400.jpg">
+                  <img class="mr-3" alt="64x64" src="<?= base_url();?>assets/v1/images/dummy-img-400x400.jpg">
                   <div class="media-body">
                     <h5 class="media-heading mt-0 mb-1">Susi Doel<small class="date">March 24, 2019</small></h5> 
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                   </div>
                 </div>
                 <div class="media comment">
-                  <img class="mr-3" alt="64x64" src="images/dummy-img-400x400.jpg">
+                  <img class="mr-3" alt="64x64" src="<?= base_url();?>assets/v1/images/dummy-img-400x400.jpg">
                   <div class="media-body">
                     <h5 class="media-heading mt-0 mb-1">Susi Doel<small class="date">March 24, 2019</small></h5> 
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- end comment -->
-              <div class="leave-comment-box">
+              <!-- <div class="leave-comment-box">
                 <h4 class="title-heading">Leave Comments</h4>
                 <form action="#" class="form-comment">
                   <div class="row">
@@ -111,11 +104,10 @@
                     </div>
                   </div>
                 </form>
-              </div>
-              <!-- end leave comment -->
+              </div> -->
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
-              <div class="widget categories">
+              <!-- <div class="widget categories">
                 <ul class="category-nav">
                   <li class="active"><a href="#" title="Landscape Design">Voluptate Velit</a></li>
                   <li><a href="#" title="Planting & Removal">Fugiat Pariatur</a></li>
@@ -124,7 +116,7 @@
                   <li><a href="#" title="Stone and Hardscaping">Minim Veniam</a></li>
                   <li><a href="#" title="Rubbish Removal">Nulla Pariatur</a></li>
                 </ul>
-              </div>
+              </div> -->
               <div class="widget widget-text">
                 <div class="widget-title">
                   Latest Post
@@ -166,50 +158,6 @@
                   <div class="col-8">admin@tritunggalmetalworks.com</div>
                 </div>
               </div>
-              <div class="widget widget-text">
-                <div class="widget-title">
-                  Download Brochure
-                </div>
-                <p>Nam efficitur orci quis leo tincidunt, ac lacinia purus aliquet. Nam pellentesque pretium nibh cursus diam dapibus a.</p>
-                <a href="#" class="btn btn-primary">Download Now</a>
-              </div>
-              <div class="widget widget-text">
-                <div class="widget-title">
-                  Text Widget
-                </div>
-                <p>Induse is designed for industrial, oil and gas, manufacturing, mechanical, power and energy, engineering & Multipurpose Business. This template has beautifull and unique design that will be best suited for your online web presence. It has 100% responsive design and tested on all major handheld devices.</p>
-                <p>Nam efficitur orci quis leo tincidunt, ac lacinia purus aliquet. Nam pellentesque pretium nibh cursus diam dapibus a.</p>
-              </div>
-              <div class="widget widget-archive">
-                <div class="widget-title">
-                  Archive
-                </div>
-                <select class="form-control">
-                  <option>April 2017</option>
-                  <option>March 2017</option>
-                  <option>February 2017</option>
-                  <option>January 2017</option>
-                </select>
-              </div> 
-              <div class="widget tags">
-                <div class="widget-title">
-                  Tags
-                </div>
-                <div class="tagcloud">
-                  <a href="#" title="3 topics">business</a>
-                  <a href="#" title="1 topic" >advocate</a>
-                  <a href="#" title="1 topic" >attorney</a>
-                  <a href="#" title="4 topics" >consult</a>
-                  <a href="#" title="2 topics" >consultant</a>
-                  <a href="#" title="1 topic" >corporate</a>
-                  <a href="#" title="2 topics" >consulting</a>
-                  <a href="#" title="1 topic" >government</a>
-                  <a href="#" title="2 topics" >justice</a>
-                  <a href="#" title="5 topics">law</a>
-                  <a href="#" title="2 topics">lawyers</a>
-                  <a href="#" title="1 topic" >legal</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -217,7 +165,7 @@
     </div>
   
     <!-- CTA -->
-    <?php include 'application/views/layout/frontend/cta.php' ?>
+    <?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
     <!-- FOOTER SECTION -->
     <?php include 'application/views/layout/frontend/footer-new.php' ?>

@@ -28,7 +28,7 @@
 						<div class="col-12 col-md-7 offset-md-1">
 							<h2 class="section-heading mt-3 mb-4">About Tritunggal Metalworks</h2>
 							<p class="subheading mb-4">The best of the best for everyone</p>        	
-							<p>Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore mque laudantium, totam rem aperiam eaque ipsa quae ab illo invent. Sed ut perspiciatis unde omnis.</p>
+							<p>We Tritunggal Metalworks (PT Kreasi Cipta Tritunggal) is a company focused on the field of billboard construction. As for some of the products we produce in the form of billboard construction such as billboards / banners / Videotron, neon, letter sign, canopi, fence, BTS tower, the working ACP for interior and exterior. Tritunggal Metalworks itself has stood since 2004 until today.</p>
 							<div class="row">
 								<div class="col">
 									<ul class="bull">
@@ -46,9 +46,9 @@
 								</div>
 							</div>
 							<blockquote class="quote">
-								<p class="uk18">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								<footer class="blockquote-footer">Carol Mongol <cite title="Source Title">Head Of Operations</cite></footer>
-							</blockquote>
+							  <p class="uk18">Simplicity is intellectually more elegant.</p>
+							  <footer class="blockquote-footer">Vico Magistretti <cite title="Source Title">Industrial Designer</cite></footer>
+						  </blockquote>
 							<div class="spacer-content"></div>
 						</div>
 					</div>
@@ -65,10 +65,10 @@
 							<div class="jumbo-heading text-primary">Reliable Engineering Takes Many Forms</div>
 							<p class="mt-3 uk21 mb-0">Our Combined Experience</p>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-5">
+						<!-- <div class="col-sm-12 col-md-12 col-lg-5">
 							<p class="font-weight-bold">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum labore et dolore magna.</p>
 							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum eiusmod tempor incididunt ut labore et dolore magna.</p>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -79,16 +79,16 @@
 			<div class="content-wrap">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12 col-md-12">
+						<!-- <div class="col-sm-12 col-md-12">
 							<p class="supheading text-center text-white">HOW WE WORK</p>
 							<h2 class="title-heading text-center text-white">Watch our video demo</h2>
 							<div class="spacer-50"></div>
 							<div class="img-video">
-								<a href="https://www.youtube.com/watch?v=vNDrLjOmUY4" class="popup-youtube play-video"><i class="fa fa-play fa-2x"></i></a>
+								<a href="#" class="popup-youtube play-video"><i class="fa fa-play fa-2x"></i></a>
 								<div class="ripple"></div>
 							</div>
 							<div class="spacer-30"></div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

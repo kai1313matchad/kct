@@ -38,28 +38,28 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url();?>Home">HOME</a>
+                  <a class="nav-link" href="<?= base_url();?>Home">BERANDA</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT US</a>
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TENTANG KAMI</a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= base_url();?>about-company">OUR COMPANY</a>
-                    <a class="dropdown-item" href="<?= base_url();?>about-history">COMPANY HISTORY</a>
-                    <a class="dropdown-item" href="<?= base_url();?>about-team">OUR TEAM</a>
-                    <a class="dropdown-item" href="<?= base_url();?>about-partners">OUR PARTNERS</a>
+                    <a class="dropdown-item" href="<?= base_url();?>about-company">PERUSAHAAN</a>
+                    <a class="dropdown-item" href="<?= base_url();?>about-history">SEJARAH</a>
+                    <a class="dropdown-item" href="<?= base_url();?>about-team">TIM</a>
+                    <a class="dropdown-item" href="<?= base_url();?>about-partners">MITRA</a>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>services">SERVICES</a>
+                  <a class="nav-link" href="<?= base_url()?>services">LAYANAN</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>projects/1">PROJECTS</a>
+                  <a class="nav-link" href="<?= base_url()?>projects/1">PROJECT</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>news">NEWS</a>
+                  <a class="nav-link" href="<?= base_url()?>news/1">ARTIKEL</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>contact">CONTACT</a>
+                  <a class="nav-link" href="<?= base_url()?>contact">KONTAK KAMI</a>
                 </li>
               </ul>
             </div>

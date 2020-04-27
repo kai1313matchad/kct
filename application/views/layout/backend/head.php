@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="KCT Compro">
     <meta name="author" content="Kaisha">
+    <link rel="shortcut icon" href="<?= base_url()?>assets/v1/images/favicon.ico">
     <title><?php echo $title ; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
