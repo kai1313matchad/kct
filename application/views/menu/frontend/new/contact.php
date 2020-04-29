@@ -4,12 +4,12 @@
 			  <div class="container">
 				  <div class="col-12 col-md-12">
 					  <div class="d-flex bd-highlight mb-2">
-						  <div class="title-page">Contact</div>
+						  <div class="title-page">Kontak Kami</div>
 					  </div>
 					  <nav aria-label="breadcrumb">
 					    <ol class="breadcrumb ">
-					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-					      <li class="breadcrumb-item active" aria-current="page">Contact</li>
+					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+					      <li class="breadcrumb-item active" aria-current="page">Kontak Kami</li>
 					    </ol>
 					  </nav>
 				  </div>
@@ -32,14 +32,14 @@
 				  </div>
 				  <div class="row mt-5">
 					  <div class="col-sm-12 col-md-12 col-lg-4">
-						  <h4 class="text-black mt-0">Contact Details</h4>
+						  <h4 class="text-black mt-0">Detail Kontak</h4>
 						  <!-- Item 1 -->
 						  <div class="rs-icon-info-2">
 							  <div class="info-icon">
 								  <i class="fa fa-map-marker"></i>
 							  </div>
 							  <div class="body-text">
-								  <h5>Address</h5>
+								  <h5>Alamat</h5>
 								  <p>Raya Taman No.15, Sidoarjo 61257. Indonesia</p>
 							  </div>
 						  </div>
@@ -49,7 +49,7 @@
 								  <i class="fa fa-phone"></i>
 							  </div>
 							  <div class="body-text">
-								  <h5>Phone</h5>
+								  <h5>Telepon</h5>
 								  <p>(031) 7870870</p>
 							  </div>
 						  </div>
@@ -65,18 +65,18 @@
 						  </div>
 					  </div>
 					  <div class="col-sm-12 col-md-12 col-lg-7 offset-lg-1">
-						  <h4 class="text-black mt-0">Send a Message here</h4>
+						  <h4 class="text-black mt-0">Kirim Pesan Pada Kami</h4>
 						  <form action="#" class="form-contact" id="contactForm">
 							  <div class="row">
 								  <div class="col-sm-6 col-md-6">
 									  <div class="form-group">
-										  <input type="text" class="form-control" id="p_name" placeholder="Enter Name" required="true">
+										  <input type="text" class="form-control" id="p_name" placeholder="Nama" required="true">
 										  <div class="help-block with-errors"></div>
 									  </div>
 								  </div>
 							  	<div class="col-sm-6 col-md-6">
 									  <div class="form-group">
-										  <input type="email" class="form-control" id="p_email" placeholder="Enter Email" required="true">
+										  <input type="email" class="form-control" id="p_email" placeholder="Email" required="true">
 										  <div class="help-block with-errors"></div>
 								  	</div>
 								  </div>
@@ -88,19 +88,19 @@
 								  </div>
 								  <div class="col-sm-6 col-md-6">
 									  <div class="form-group">
-										  <input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
+										  <input type="text" class="form-control" id="p_phone" placeholder="No Telepon">
 										  <div class="help-block with-errors"></div>
 									  </div>
 								  </div>
 							  </div>
 							  <div class="form-group">
-								  <textarea id="p_message" class="form-control" rows="6" placeholder="Enter Your Message"></textarea>
+								  <textarea id="p_message" class="form-control" rows="6" placeholder="Pesan Anda"></textarea>
 								  <div class="help-block with-errors"></div>
 							  </div>
 							  <div class="form-group">
 								  <div class="text-left">
 									  <div id="success"></div>
-									  <button type="button" class="btn btn-primary" onclick="sendMsg()">SEND MESSAGE</button>
+									  <button type="button" class="btn btn-primary" onclick="sendMsg()">KIRIM PESAN</button>
 								  </div>
 							  </div>
 						  </form>
@@ -111,7 +111,7 @@
 	  </div>
 
     <!-- CTA -->
-    <?php include 'application/views/layout/frontend/cta.php' ?>
+    <?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
     <!-- FOOTER SECTION -->
 	  <?php include 'application/views/layout/frontend/footer-new.php' ?>

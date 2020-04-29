@@ -4,12 +4,12 @@
 			  <div class="container">
 				  <div class="col-12 col-md-12">
 					  <div class="d-flex bd-highlight mb-2">
-						  <div class="title-page">Our Team</div>
+						  <div class="title-page">Manajemen Tritunggal Metalworks</div>
 					  </div>
 					  <nav aria-label="breadcrumb">
 					    <ol class="breadcrumb ">
-					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-					      <li class="breadcrumb-item active" aria-current="page">Our Team</li>
+					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+					      <li class="breadcrumb-item active" aria-current="page">Manajemen</li>
 					    </ol>
 					  </nav>
 				  </div>
@@ -79,7 +79,7 @@
     </div>
   
     <!-- CTA -->
-    <?php include 'application/views/layout/frontend/cta.php' ?>
+    <?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
     <!-- FOOTER SECTION -->
     <?php include 'application/views/layout/frontend/footer-new.php' ?>

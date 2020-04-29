@@ -4,12 +4,12 @@
 			  <div class="container">
 				  <div class="col-12 col-md-12">
 					  <div class="d-flex bd-highlight mb-2">
-						  <div class="title-page">Our Partners</div>
+						  <div class="title-page">Mitra Kami</div>
 					  </div>
 					  <nav aria-label="breadcrumb">
 					    <ol class="breadcrumb ">
-					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-					      <li class="breadcrumb-item active" aria-current="page">Our Partners</li>
+					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+					      <li class="breadcrumb-item active" aria-current="page">Mitra Kami</li>
 					    </ol>
 					  </nav>
 				  </div>

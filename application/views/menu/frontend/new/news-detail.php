@@ -4,12 +4,12 @@
         <div class="container">
           <div class="col-12 col-md-12">
             <div class="d-flex bd-highlight mb-2">
-              <div class="title-page">News</div>
+              <div class="title-page">Artikel</div>
             </div>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb ">
-                <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">News</li>
+                <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Artikel</li>
               </ol>
             </nav>
           </div>
@@ -32,7 +32,7 @@
                 </div>
                 <h2 class="title"><?= $newsDt["judul"];?></h2>
                 <div class="meta mb-4">
-                  <div class="meta-date d-inline"><i class="fa fa-clock-o"></i> <?= $newsDt["tanggal"];?></div> <div class="meta-author d-inline">Posted by Admin</div>
+                  <div class="meta-date d-inline"><i class="fa fa-clock-o"></i> <?= $newsDt["tanggal"];?></div> <div class="meta-author d-inline">Posting oleh Admin</div>
                 </div>
                 <?= $newsDt["isi"];?>
               </div>
@@ -119,9 +119,57 @@
               </div> -->
               <div class="widget widget-text">
                 <div class="widget-title">
-                  Latest Post
+                  Posting Terbaru
                 </div>
-                <div class="latest-post-item">
+                <?php 
+                  foreach ($latestNews as $lt) { 
+                    $newTgl = explode("-", $lt["tanggal"]);
+                    switch ($newTgl[1]) {
+                      case '01':
+                        $newBln = "Jan";
+                        break;
+                      case '02':
+                        $newBln = "Feb";
+                        break;
+                      case '03':
+                        $newBln = "Mar";
+                        break;
+                      case '04':
+                        $newBln = "Apr";
+                        break;
+                      case '05':
+                        $newBln = "Mei";
+                        break;
+                      case '06':
+                        $newBln = "Jun";
+                        break;
+                      case '07':
+                        $newBln = "Jul";
+                        break;
+                      case '08':
+                        $newBln = "Agu";
+                        break;
+                      case '09':
+                        $newBln = "Sep";
+                        break;
+                      case '10':
+                        $newBln = "Okt";
+                        break;
+                      case '11':
+                        $newBln = "Nov";
+                        break;
+                      default:
+                        $newBln = "Des";
+                        break;
+                    }
+                ?>
+                  <div class="latest-post-item">
+                    <div class="meta-date"><span><?= $newTgl[2];?></span><?= $newBln;?></div>
+                    <div class="title"><a href="page-news-single.html"><?= $lt["judul"];?></a></div>
+                    <p class="meta-author">Posting oleh Admin</p>
+                  </div>
+                <?php } ?>
+                <!-- <div class="latest-post-item">
                   <div class="meta-date"><span>30</span>May</div>
                   <div class="title"><a href="page-news-single.html">Deserunt mollit anim id est laborum</a></div>
                   <p class="meta-author">Posted by Rome Doel</p>
@@ -135,18 +183,18 @@
                   <div class="meta-date"><span>14</span>Feb</div>
                   <div class="title"><a href="page-news-single.html">Duis aute irure dolor in reprehenderit in voluptate velit</a></div>
                   <p class="meta-author">Posted by Rome Doel</p>
-                </div>
+                </div> -->
               </div>
               <div class="widget widget-text">
                 <div class="widget-title">
-                  Contact Info
+                  Kontak Kami
                 </div>
                 <div class="row mb-3">
-                  <div class="col-4">Address :</div>
+                  <div class="col-4">Alamat </div>
                   <div class="col-8">Raya Taman No.15, Sidoarjo 61257. Indonesia</div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-4">Office  :</div>
+                  <div class="col-4">Telepon  </div>
                   <div class="col-8">(031) 7870870</div>
                 </div>
                 <!-- <div class="row mb-3">
@@ -154,7 +202,7 @@
                   <div class="col-8">(123) 65412309</div>
                 </div> -->
                 <div class="row mb-3">
-                  <div class="col-4">Email :</div>
+                  <div class="col-4">Email </div>
                   <div class="col-8">admin@tritunggalmetalworks.com</div>
                 </div>
               </div>

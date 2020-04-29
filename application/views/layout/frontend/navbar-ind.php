@@ -14,7 +14,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-sm-6 col-md-6">
-              <p class="mb-0">Number 1 in services</p>
+              <p class="mb-0">Selalu memberikan yang terbaik</p>
             </div>
             <div class="col-sm-6 col-md-6">
               <div class="sosmed-icon d-inline-flex pull-right">

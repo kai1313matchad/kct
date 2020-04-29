@@ -35,7 +35,7 @@
 			  <div class="container">
 				  <div class="row">
 					  <div class="col-sm-12 col-md-12">
-						  <h2 class="section-heading text-primary no-after mb-5">SERVICES</h2>
+						  <h2 class="section-heading text-primary no-after mb-5">LAYANAN KAMI</h2>
 						  <p class="subheading">Kami menerapkan standar yang tinggi untuk solusi bisnis anda.</p>
 					  </div>
 				  </div>
@@ -44,14 +44,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-billboard.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-billboard.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Billboard</div>
 										  <p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -61,14 +61,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-canopy-2.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-canopy-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Canopy</div>
 										  <p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title=" Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -78,14 +78,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-letter-2.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-letter-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Letter Sign</div>
 										  <p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -95,14 +95,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-fascia-2.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-fascia-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Fascia Billboard</div>
 										  <p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -112,14 +112,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-signage-2.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-signage-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Signage</div>
 										  <p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -129,14 +129,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="services-detail.html"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-container.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-container.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Container</div>
 									  	<p></p>
-										  <a class="text-href" href="services-detail.html" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -148,7 +148,7 @@
 	  </div>
 
     <!-- ABOUT -->
-		<div class="section">
+		<!-- <div class="section">
 			<div class="content-wrap py-0">
 				<div class="container">
 					<div class="row align-items-end">
@@ -165,7 +165,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	  <!-- FACT -->
 	  <div class="section bgi-cover-center bg-overlay-primary" data-background="<?= base_url()?>assets/v1/images/1920x900/1920x900-4.jpg">
@@ -220,13 +220,29 @@
 			  <div class="container">
 				  <div class="row">
 					  <div class="col-sm-12 col-md-12">
-						  <h2 class="section-heading text-primary mb-5">BERITA TERBARU</h2>
-						  <p class="subheading">Kami menerapkan standar yang tinggi untuk solusi bisnis anda.</p>
+						  <h2 class="section-heading text-primary mb-5">ARTIKEL TERBARU</h2>
+						  <!-- <p class="subheading">Kami menerapkan standar yang tinggi untuk solusi bisnis anda.</p> -->
 				  	</div>
 				  </div>
 				  <div class="row mt-4">
+						<?php foreach ($latestNews as $dt) { ?>
+							<div class="col-sm-12 col-md-12 col-lg-4">
+								<div class="rs-news-1 mb-1">
+									<div class="media">
+										<a href="news-single.html">
+											<img src="<?= base_url()?>assets/uploads/news/<?= $dt['path'];?>" alt="" class="img-fluid">
+										</a>
+									</div>
+									<div class="body">
+										<div class="title"><a href="news-single.html"><?= $dt["judul"];?></a></div>
+										<div class="meta-date"><?= $dt["tanggal"];?></div>
+										<p><?= $dt["kutipan"]?></p>
+									</div>
+								</div>
+							</div>
+						<?php }?>
             <!-- Item 1 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-4">
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
@@ -239,9 +255,9 @@
                   <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- Item 2 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-4">
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
@@ -254,9 +270,9 @@
                   <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- Item 3 -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-4">
               <div class="rs-news-1 mb-1">
                 <div class="media">
                   <a href="news-single.html">
@@ -269,7 +285,7 @@
                   <p>Dignissimos ccusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores....</p>
                 </div>
               </div>
-            </div>
+            </div> -->
 				  </div>
 			  </div>
 		  </div>

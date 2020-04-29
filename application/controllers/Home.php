@@ -54,6 +54,8 @@
 		}
 
 		public function index() {
+			$data['latestNews']=$this->latestNews(3);
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['ctn']='menu/frontend/new/homes-ind';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -77,6 +79,7 @@
 		}
 
 		public function aboutCompany() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -86,6 +89,7 @@
 		}
 
 		public function aboutHistory() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -95,6 +99,7 @@
 		}
 
 		public function aboutTeam() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -104,6 +109,7 @@
 		}
 		
 		public function partners() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/frontend/partners';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -499,6 +505,7 @@
 		}
 
 		public function contact_us() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			// $data['isi']='menu/frontend/contact';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -584,6 +591,7 @@
 		}
 
 		public function servicesList() {
+			$data['recentNews']=$this->latestNews(2);
 			$data['title']='Tritunggal Metalworks';
 			$data['ctn']='menu/frontend/new/services-list';
 			// $data['meta_add'] = $this->meta_social(2);
@@ -591,6 +599,7 @@
 		}
 
 		public function projectList() {
+			$data['recentNews']=$this->latestNews(2);
 			$table='products';
 			$order='id_product';
 			$spe='kategori';
@@ -609,10 +618,10 @@
 		  $config['full_tag_close'] = '</ul>';
 		  $config['first_tag_open'] = '<li class="page-item">';
 		  $config['first_tag_close'] = '</li>';
-		  $config['prev_link'] = 'Previous';
+		  $config['prev_link'] = '<<<';
 		  $config['prev_tag_open'] = '<li class="page-item prev">';
 		  $config['prev_tag_close'] = '</li>';
-		  $config['next_link'] = 'Next';
+		  $config['next_link'] = '>>>';
 		  $config['next_tag_open'] = '<li class="page-item">';
 		  $config['next_tag_close'] = '</li>';
 		  $config['last_tag_open'] = '<li class="page-item">';
@@ -635,6 +644,7 @@
 		}
 
 		public function projectDetail() {
+			$data['recentNews']=$this->latestNews(2);
 			$uri = $this->uri->segment(2);
 			$data['projectDt']=$this->M_dash->select_data($uri,'products','url');
 			$data['title']='Tritunggal Metalworks';
@@ -646,6 +656,7 @@
 		}
 
 		public function news_list() {
+			$data['recentNews']=$this->latestNews(2);
 			$table='news';
 			$order='id_news';
 			$spe='kategori';
@@ -664,10 +675,10 @@
 		  $config['full_tag_close'] = '</ul>';
 		  $config['first_tag_open'] = '<li class="page-item">';
 		  $config['first_tag_close'] = '</li>';
-		  $config['prev_link'] = 'Previous';
+		  $config['prev_link'] = '<<<';
 		  $config['prev_tag_open'] = '<li class="page-item prev">';
 		  $config['prev_tag_close'] = '</li>';
-		  $config['next_link'] = 'Next';
+		  $config['next_link'] = '>>>';
 		  $config['next_tag_open'] = '<li class="page-item">';
 		  $config['next_tag_close'] = '</li>';
 		  $config['last_tag_open'] = '<li class="page-item">';
@@ -690,6 +701,8 @@
 		}
 
 		public function newsDetail() {
+			$data['recentNews']=$this->latestNews(2);
+			$data['latestNews']=$this->latestNews(3);
 			$uri = $this->uri->segment(2);
 			$data['newsDt']=$this->M_dash->select_data($uri,'news','url');
 			$data['title']='Tritunggal Metalworks';
@@ -698,6 +711,11 @@
 			// $this->load->view('layout/frontend/wrapper',$data);
 			$data['ctn']='menu/frontend/new/news-detail';
 			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function latestNews($limit) {
+			$get = $this->db->order_by('tanggal', 'DESC')->limit($limit)->get('news')->result_array();
+			return $get;
 		}
 
 		public function news_detail()

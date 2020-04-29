@@ -4,12 +4,12 @@
         <div class="container">
           <div class="col-12 col-md-12">
             <div class="d-flex bd-highlight mb-2">
-              <div class="title-page">Services</div>
+              <div class="title-page">Layanan</div>
             </div>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb ">
-                <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Services</li>
+                <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Layanan</li>
               </ol>
             </nav>
           </div>
@@ -33,7 +33,7 @@
 									  <div class="text">
 										  <div class="title">Billboard</div>
 										  <p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -43,14 +43,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-canopy.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-canopy-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Canopy</div>
 										  <p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -60,14 +60,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-letter.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-letter-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Letter Sign</div>
 										  <p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -77,14 +77,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-fascia.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-fascia-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Fascia Billboard</div>
 										  <p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -94,14 +94,14 @@
 					  <div class="col-sm-12 col-md-12 col-lg-4">
 						  <div class="feature-box-7 shadow">
 							  <div class="media-box">
-								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-signage.jpg" alt="" class="img-fluid"></a>
+								  <a href="<?= base_url();?>projects/1"><img src="<?= base_url()?>assets/v1/images/600x500/600x500-signage-2.jpg" alt="" class="img-fluid"></a>
 							  </div>
 							  <div class="body">
 								  <div class="info-box">
 									  <div class="text">
 										  <div class="title">Signage</div>
 										  <p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>
@@ -118,7 +118,7 @@
 									  <div class="text">
 										  <div class="title">Container</div>
 									  	<p></p>
-										  <a class="text-href" href="<?= base_url();?>projects/1" title="Get Detail">Get Detail</a>
+										  <a class="text-href" href="<?= base_url();?>projects/1" title="Detail">Detail</a>
 									  </div>
 								  </div>
 							  </div>

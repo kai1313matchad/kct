@@ -4,12 +4,12 @@
 			  <div class="container">
 				  <div class="col-12 col-md-12">
 					  <div class="d-flex bd-highlight mb-2">
-						  <div class="title-page">About Us</div>
+						  <div class="title-page">Tentang Kami</div>
 					  </div>
 					  <nav aria-label="breadcrumb">
 					    <ol class="breadcrumb ">
-					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Home</a></li>
-					      <li class="breadcrumb-item active" aria-current="page">About Us</li>
+					      <li class="breadcrumb-item"><a href="<?= base_url();?>Home">Beranda</a></li>
+					      <li class="breadcrumb-item active" aria-current="page">Tentang Kami</li>
 					    </ol>
 					  </nav>
 				  </div>
@@ -27,8 +27,8 @@
 					  </div>
 						<div class="col-12 col-md-7 offset-md-1">
 							<h2 class="section-heading mt-3 mb-4">About Tritunggal Metalworks</h2>
-							<p class="subheading mb-4">The best of the best for everyone</p>        	
-							<p>We Tritunggal Metalworks (PT Kreasi Cipta Tritunggal) is a company focused on the field of billboard construction. As for some of the products we produce in the form of billboard construction such as billboards / banners / Videotron, neon, letter sign, canopi, fence, BTS tower, the working ACP for interior and exterior. Tritunggal Metalworks itself has stood since 2004 until today.</p>
+							<p class="subheading mb-4">Kami selalu memberikan layanan terbaik</p>
+							<p>Tritunggal Metalworks (PT Kreasi Cipta Tritunggal) adalah perusahaan yang bergerak di bidang jasa konstruksi, khususnya konstruksi reklame. Beberapa bidang proyek kami adalah seperti billboard, baliho, banner, videotron, neonbox, letter sign, kanopi, pagar, pengerjaan interior dan eksterior. Tritunggal Metalworks sudah berdiri sejak 2004 hingga hari ini.</p>
 							<div class="row">
 								<div class="col">
 									<ul class="bull">
@@ -100,8 +100,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 col-md-12">
-							<h2 class="section-heading text-primary no-after mb-5">WHY CHOOSING US</h2>
-							<p class="subheading">We provide high standar clean website for your business solutions</p>
+							<h2 class="section-heading text-primary no-after mb-5">KENAPA MEMILIH TRITUNGGAL METALWORKS</h2>
+							<p class="subheading">Kami selalu memberikan layanan terbaik</p>
 						</div>
 					</div>
 					<div class="row mt-5">
@@ -112,8 +112,8 @@
 									<a href="#"><img src="<?= base_url();?>assets/v1/images/600x500/600x500-1.jpg" alt="" class="img-fluid"></a>
 								</div>
 								<div class="body-content">
-									<h4><a href="#" class="">We Are Professional</a></h4>
-									<p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
+									<h4><a href="#" class="">Kami Professional</a></h4>
+									<p>Tim kami terdiri dari individu-individu yang professional dan mahir di bidangnya.</p>
 								</div>
 							</div>
 						</div>
@@ -124,8 +124,8 @@
 									<a href="#"><img src="<?= base_url();?>assets/v1/images/600x500/600x500-2.jpg" alt="" class="img-fluid"></a>
 								</div>
 								<div class="body-content">
-									<h4><a href="#">We Are Trusted</a></h4>
-									<p>Reprehenderit in voluptate velit esse cillum pariatur.</p>
+									<h4><a href="#">Kami Terpercaya</a></h4>
+									<p>Dengan pengalaman lebih dari 10 tahun dan akan terus berlanjut menjaga kepercayaan setiap mitra kami.</p>
 								</div>
 							</div>
 						</div>
@@ -136,8 +136,8 @@
 									<a href="#"><img src="<?= base_url();?>assets/v1/images/600x500/600x500-3.jpg" alt="" class="img-fluid"></a>
 								</div>
 								<div class="body-content">
-									<h4><a href="#">We Are Expert</a></h4>
-									<p>Excepteur sint occaecat cupidatat non proident consectetur.</p>
+									<h4><a href="#">Kami Ahlinya</a></h4>
+									<p>Dengan ratusan proyek yang sudah terselesaikan dan akan terus bertambah.</p>
 								</div>
 							</div>
 						</div>
@@ -175,7 +175,7 @@
 		</div>
 
 		<!-- CTA -->
-		<?php include 'application/views/layout/frontend/cta.php' ?>
+		<?php include 'application/views/layout/frontend/cta-ind.php' ?>
 
 		<!-- FOOTER SECTION -->
 		<?php include 'application/views/layout/frontend/footer-new.php' ?>
