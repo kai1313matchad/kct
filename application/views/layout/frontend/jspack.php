@@ -5,6 +5,7 @@
 		<script src="<?= base_url()?>assets/v1/js/vendor/jquery.magnific-popup.min.js"></script>
 		<script src="<?= base_url()?>assets/v1/js/vendor/isotope.pkgd.min.js"></script>
 		<script src="<?= base_url()?>assets/v1/js/vendor/imagesloaded.pkgd.min.js"></script>
+		<script src="<?= base_url()?>assets/v1/js/jquery.nice-select.js"></script>
 
 		<!-- SENDMAIL -->
 		<script src="<?= base_url()?>assets/v1/js/vendor/validator.min.js"></script>

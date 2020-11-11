@@ -59,7 +59,7 @@
                   <a class="nav-link" href="<?= base_url()?>news/1">ARTIKEL</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url()?>contact">KONTAK KAMI</a>
+                  <a class="nav-link" href="<?= base_url()?>shop/1">BELANJA</a>
                 </li>
               </ul>
             </div>

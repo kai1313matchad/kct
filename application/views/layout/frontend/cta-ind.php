@@ -26,6 +26,8 @@
                       <div class="info-text">
                         <h4>Telepon</h4>
                         (031) 7870870
+                        <br>
+                        0822 3056 0661
                       </div>
                     </div>
                   </div>
@@ -37,7 +39,7 @@
                       </div>
                       <div class="info-text">
                         <h4>Kontak Email</h4>
-                        admin <br/> @tritunggalmetalworks.com
+                        <small>diana@tritunggalmetalworks.com</small>                        
                       </div>
                     </div>
                   </div>

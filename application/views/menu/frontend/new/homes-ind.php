@@ -229,12 +229,12 @@
 							<div class="col-sm-12 col-md-12 col-lg-4">
 								<div class="rs-news-1 mb-1">
 									<div class="media">
-										<a href="news-single.html">
+										<a href="<?= base_url();?>news-details/<?= $dt["url"];?>">
 											<img src="<?= base_url()?>assets/uploads/news/<?= $dt['path'];?>" alt="" class="img-fluid">
 										</a>
 									</div>
 									<div class="body">
-										<div class="title"><a href="news-single.html"><?= $dt["judul"];?></a></div>
+										<div class="title"><a href="<?= base_url();?>news-details/<?= $dt["url"];?>"><?= $dt["judul"];?></a></div>
 										<div class="meta-date"><?= $dt["tanggal"];?></div>
 										<p><?= $dt["kutipan"]?></p>
 									</div>

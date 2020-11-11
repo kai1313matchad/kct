@@ -63,3 +63,4 @@ $route['about-company'] = 'Home/aboutCompany';
 $route['about-team'] = 'Home/aboutTeam';
 $route['about-history'] = 'Home/aboutHistory';
 $route['about-partners'] = 'Home/partners';
+$route['shop/(:any)'] = 'Home/shopList/1';

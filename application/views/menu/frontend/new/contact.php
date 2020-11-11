@@ -50,7 +50,7 @@
 							  </div>
 							  <div class="body-text">
 								  <h5>Telepon</h5>
-								  <p>(031) 7870870</p>
+									<p>(031) 7870870 <br> 0822 3056 0661</p>
 							  </div>
 						  </div>
 						  <!-- Item 3 -->
@@ -60,7 +60,7 @@
 							  </div>
 							  <div class="body-text">
 								  <h5>Email</h5>
-								  <p>admin@tritunggalmetalworks.com</p>
+								  <p>diana@tritunggalmetalworks.com</p>
 							  </div>
 						  </div>
 					  </div>

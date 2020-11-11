@@ -28,10 +28,12 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/vendor/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/vendor/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/nice-select.css">
     
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/v1/css/shop.css">
     <script src="<?= base_url()?>assets/v1/js/vendor/modernizr.min.js"></script>
   </head>

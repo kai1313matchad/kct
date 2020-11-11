@@ -1,3 +1,7 @@
+  <a href="https://wa.me/6282230560661?text=Hi, TritunggalMetalworks! Saya ingin bertanya tentang produknya nih" class="float" target="_blank">
+		<i class="fa fa-whatsapp my-float"></i>
+	</a>
+    
     <div class="footer">
 		  <div class="spacer-50"></div>
 		  <div class="content-wrap">
@@ -61,13 +65,13 @@
                     <div class="info-icon">
                       <span class="fa fa-phone"></span>
                     </div>
-                    <div class="info-text">(031) 7870870</div>
+                    <div class="info-text">(031) 7870870, <br>0822 3056 0661</div>
                   </li>
                   <li>
                     <div class="info-icon">
                       <span class="fa fa-envelope"></span>
                     </div>
-                    <div class="info-text">admin@tritunggalmetalworks.com</div>
+                    <div class="info-text">diana@tritunggalmetalworks.com</div>
                   </li>
                   <li>
                     <div class="info-icon">
