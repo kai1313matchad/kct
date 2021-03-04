@@ -7,6 +7,7 @@
 		{
 			parent::__construct();
 			$this->load->model('frontend/M_dashboard','M_dash');
+			$this->load->model('backend/M_administrator', 'M_adm');
 		}				
 
 		//List Menu
@@ -598,20 +599,27 @@
 			$this->load->view('layout/frontend/wrapper-new',$data);	
 		}
 
-		public function shopList() {
-			$data['recentNews']=$this->latestNews(2);
-			$table='products';
-			$order='id_product';
-			$spe='kategori';
-			$srch='';
+		public function shopList($param) {
+			$data['recentNews'] = $this->latestNews(2);
+			$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+			$data['ctgPicked'] = '';
+			$table='goods';
+			$order='itemName';
+			$ctg = ($this->input->get('ctg') != '')?$this->input->get('ctg'):NULL;
+			$conditions = array();
+			if ($ctg != NULL) {
+				$conditions['idCtg'] = $ctg;
+				$data['ctgPicked'] = $ctg;
+			}
 			//pagination settings
-			$config['base_url'] = base_url().'projects';
+			$config['base_url'] = base_url().'shop';
 			$config['use_page_numbers'] = TRUE;
 			$config["uri_segment"] = 2;
-			$config['per_page'] = 9;
-			$config['total_rows'] = $this->M_dash->count_product($table,$spe,$srch);
-		  // $choice = $config["total_rows"]/$config["per_page"];
+			$config['per_page'] = 6;
+			$config['total_rows'] = $this->M_dash->getPaginationAllRows($table, $conditions);
+		  $choice = $config["total_rows"]/$config["per_page"];
 		  $config["num_links"] = 4;//floor($choice);
+			$config['reuse_query_string'] = true;
 			// integrate bootstrap pagination
 			$config['attributes'] = array('class'=>'page-link');
 		  $config['full_tag_open'] = '<ul class="pagination">';
@@ -630,17 +638,42 @@
 		  $config['cur_tag_close'] = '</a></li>';
 		  $config['num_tag_open'] = '<li class="page-item">';
 			$config['num_tag_close'] = '</li>';
-			$config['first_url'] = base_url().'projects/1';
+			// $config['first_url'] = base_url().'shop/1';
+			$config['first_url'] = base_url().'shop/1?'.http_build_query($_GET);
 			$this->pagination->initialize($config);
-		  $data['page'] = ($this->uri->segment(2) != 1) ? ($this->uri->segment(2)-1)*9 : 0;
-		  $data['listdata'] = $this->M_dash->get_product_data($table,$order,$spe,$config["per_page"], $data['page'],$srch);
+		  $data['page'] = ($this->uri->segment(2) != 1) ? ($this->uri->segment(2)-1)*$config["per_page"] : 0;
+		  $data['listdata'] = $this->popShopList($this->M_dash->getPaginationData($table, $order, $conditions, $config["per_page"], $data['page']));
 		  $data['pagination'] = $this->pagination->create_links();
 			$data['title']='Tritunggal Metalworks';
-			$data['isi']='menu/frontend/news';
-			// $data['meta_add'] = $this->meta_artikel(3);
-			// $this->load->view('layout/frontend/wrapper',$data);
 			$data['ctn']='menu/frontend/new/shop-list';
 			$this->load->view('layout/frontend/wrapper-new',$data);
+		}
+
+		public function popShopList($datas) {
+			$html = '';
+			foreach ($datas as $dt) {
+				$getPic = $this->M_adm->getDataByParentId('goods_images', array('itemId'=>$dt->itemId));
+				$pic = ($getPic != NULL)?$getPic[0]->imgPath:NULL;
+				$getCtg = $this->db->get_where('categories', array('idCtg'=>$dt->idCtg))->row();
+				$html .= 
+					'<div class="col-sm-12 col-md-12 col-lg-4 list-card">
+						<div class="rs-news-1 mb-5">
+							<div class="media">
+								<a href="#">
+									<img src="'.base_url().'assets/uploads/goods/'.$pic.'" alt="" class="img-fluid">
+								</a>
+								<span class="to-detail"><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Lihat detail</a></span>
+							</div>
+							<div class="body">
+								<div class="title"><a href="#">'.$dt->itemName.'</a></div>
+								<div class="meta-date"><a href="#">'.$getCtg->ctgName.'</a></div>
+								<p style="min-height: 96px;">'.mb_strimwidth(strip_tags($dt->itemDesc), 0, 100, "...").'</p>
+								<div class="list-price"><span>Rp '.number_format($dt->itemPrice, 0, '.', ',').'</span></div>
+							</div>
+						</div>
+					</div>';
+			}
+			return $html;
 		}
 
 		public function projectList() {

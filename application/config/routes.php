@@ -64,3 +64,17 @@ $route['about-team'] = 'Home/aboutTeam';
 $route['about-history'] = 'Home/aboutHistory';
 $route['about-partners'] = 'Home/partners';
 $route['shop/(:any)'] = 'Home/shopList/1';
+
+//Administrator
+$route['admin/dashboard'] = 'Administrator/dashboard';
+$route['admin/manage-banner'] = 'Administrator/manageBanner';
+$route['admin/add-banner'] = 'Administrator/addBanner';
+$route['admin/edit-banner/(:any)'] = 'Administrator/editBanner/$1';
+$route['admin/manage-categories'] = 'Administrator/manageCategories';
+$route['admin/add-category'] = 'Administrator/addCategory';
+$route['admin/edit-category/(:any)'] = 'Administrator/editCategory/$1';
+$route['admin/manage-goods'] = 'Administrator/manageGoods';
+$route['admin/add-goods'] = 'Administrator/addGoods';
+$route['admin/add-goods-images/(:any)'] = 'Administrator/addGoodsImages/$1';
+$route['admin/edit-goods/(:any)'] = 'Administrator/editGoods/$1';
+$route['admin/edit-goods-images/(:any)'] = 'Administrator/editGoodsImages/$1';

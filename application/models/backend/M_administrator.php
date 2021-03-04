@@ -76,5 +76,25 @@
 			$que = $this->db->get($table);
 			return $que->num_rows();
 		}
+
+		public function checkSlug($table, $idTable, $ids) {
+			$get = $this->db->get_where($table, array($idTable=>$ids))->num_rows();
+			return $get;
+		}
+
+		public function checkSlugExist($table, $check) {
+			$get = $this->db->get_where($table, $check)->num_rows();
+			return $get;
+		}
+
+		public function getMasterByTable($table, $tableId, $ids) {
+			$get = $this->db->get_where($table, array($tableId=>$ids))->result();
+			return $get;
+		}
+
+		public function getDataByParentId($table, $param) {
+			$get = $this->db->get_where($table, $param)->result();
+			return $get;
+		}
 	}
 ?>

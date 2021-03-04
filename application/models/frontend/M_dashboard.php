@@ -52,5 +52,15 @@
 			$que = $this->db->get_where('users', array('username'=>'admin'));
 			return $que->row();
 		}
+
+		public function getPaginationData($table, $order, $conditions, $limit, $start) {
+			$get = $this->db->limit($limit, $start)->order_by($order)->get_where($table, $conditions)->result();
+			return $get;
+		}
+
+		public function getPaginationAllRows($table, $conditions) {
+			$get = $this->db->get_where($table, $conditions)->num_rows();
+			return $get;
+		}
 	}
 ?>

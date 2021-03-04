@@ -7,6 +7,7 @@
 		{
 			parent::__construct();
 			$this->load->model('backend/M_administrator','M_adm');
+			$this->load->model(array('backend/DtbManageBanner', 'backend/DtbManageCategories', 'backend/DtbManageGoods'));
 		}				
 
 		//List Menu
@@ -37,15 +38,466 @@
 		{
 			$data['title']='Tritunggal Metalworks';
 			$data['isi']='menu/backend/dashboard';
-			$this->load->view('layout/backend/wrapper',$data);
+			// $this->load->view('layout/backend/wrapper',$data);
+			$this->load->view('menu/backend/new/dashboard', $data);
 		}
 
 		public function logout()
 		{
 			$this->simple_login->logout();
 		}
-		
+
+		//goods
+		public function manageGoods() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/manage-goods', $data);
+		}
+
+		public function goodsList() {
+			$list = $this->DtbManageGoods->get_datatables();
+			$data = array();
+			$no = $_POST['start'];
+			foreach ($list as $dat) {
+				$getPic = $this->M_adm->getDataByParentId('goods_images', array('itemId'=>$dat->itemId));
+				$pic = ($getPic != NULL)?$getPic[0]->imgPath:NULL;
+				$no++;
+				$row = array();
+				$row[] = $no;
+				$row[] = '<img src="'.base_url().'assets/uploads/goods/'.$pic.'" class="img-thumbnail img-responsive" width="100%">';
+				$row[] = $dat->itemName;
+				$row[] = $dat->ctgName;
+				$row[] = strip_tags($dat->itemDesc);
+				$row[] = number_format($dat->itemPrice, 2, '.', ',');
+        $row[] = '<a href="'.base_url().'admin/edit-goods/'.$dat->itemId.'" class="btn mb-1 btn-warning"><i class="fas fa-fw fa-edit"></i></a><a href="'.base_url().'Administrator/deleteGoods/'.$dat->itemId.'" class="btn mb-1 btn-danger"><i class="fas fa-fw fa-trash-alt"></i></a>';
+				$data[] = $row;
+			}
+			$output = array(
+							"draw" => $_POST['draw'],
+							"recordsTotal" => $this->DtbManageGoods->count_all(),
+							"recordsFiltered" => $this->DtbManageGoods->count_filtered(),
+							"data" => $data,
+					);			
+			echo json_encode($output);
+    }
+
+		public function addGoods() {
+			$data['title']='Tritunggal Metalworks';
+			$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+			$this->load->view('menu/backend/new/add-goods', $data);
+		}
+
+		public function addGoodsImages($ids) {
+			$id='itemId';
+			$table='goods';
+			$data['title']='Tritunggal Metalworks';
+			$data['goods']=$this->M_adm->get_edit_data($table,$id,$ids);
+			$this->load->view('menu/backend/new/add-goods-images', $data);
+		}
+
+		public function editGoods($ids) {
+			$id='itemId';
+			$table='goods';
+			$data['title']='Tritunggal Metalworks';
+			$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+			$data['goods']=$this->M_adm->get_edit_data($table,$id,$ids);					
+			$this->load->view('menu/backend/new/edit-goods', $data);
+		}
+
+		public function editGoodsImages($ids) {
+			$id='itemId';
+			$table='goods';
+			$data['title']='Tritunggal Metalworks';
+			$data['goods']=$this->M_adm->get_edit_data($table,$id,$ids);
+			$data['pics'] = $this->M_adm->getDataByParentId('goods_images', array('itemId'=>$ids));
+			$this->load->view('menu/backend/new/edit-goods-images', $data);
+		}
+
+		public function saveGoods() {
+			$this->form_validation->set_rules('itemName','Nama Barang','required');
+			$this->form_validation->set_rules('itemCtg','Kategori Barang','required');
+			$this->form_validation->set_rules('itemDesc','Deskripsi Barang','required');
+			$this->form_validation->set_rules('itemPrice','Harga Barang','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('itemName'), 'dash', true);
+			$check = $this->M_adm->checkSlug('goods', 'itemSlug', $slug);
+			if($this->form_validation->run() === FALSE) {
+				$this->addGoods();
+			}
+			else if ($check > 0) {
+				$data['title']='Tritunggal Metalworks';
+				$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$this->load->view('menu/backend/new/add-goods', $data);
+			}
+			else {
+				$data = array (
+					'itemName'=>$this->input->post('itemName'),
+					'itemDesc'=>$this->input->post('itemDesc'),
+					'itemPrice'=>str_replace(',', '', $this->input->post('itemPrice')),
+					'idCtg'=>$this->input->post('itemCtg'),
+					'itemSlug'=>$slug,
+					'itemStatus'=>1
+				);
+				$res = $this->M_adm->insert_data('goods',$data);
+				$insertId = $this->db->insert_id();
+				if($res == '0') {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+					$this->load->vars($data);
+					$this->addGoods();
+				}
+				else {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+					redirect('admin/add-goods-images/'.$insertId);
+				}	
+			}
+		}
+
+		public function updateGoods() {
+			$this->form_validation->set_rules('itemName','Nama Barang','required');
+			$this->form_validation->set_rules('itemCtg','Kategori Barang','required');
+			$this->form_validation->set_rules('itemDesc','Deskripsi Barang','required');
+			$this->form_validation->set_rules('itemPrice','Harga Barang','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('itemName'), 'dash', true);
+			$check = $this->M_adm->checkSlug('goods', 'itemSlug', $slug);
+			$checkExist = $this->M_adm->checkSlugExist('goods', array('itemSlug'=>$slug, 'itemId'=>$this->input->post('ids')));
+			if($this->form_validation->run() === FALSE) {
+				$this->editGoods($this->input->post('ids'));
+			}
+			else if ($check > 0 && $checkExist == 0) {
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$data['title']='Tritunggal Metalworks';
+				$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+				$data['goods']=$this->M_adm->get_edit_data('goods','itemId',$this->input->post('ids'));
+				$this->load->view('menu/backend/new/edit-goods', $data);
+			}
+			else {
+				$data = array (
+					'itemName'=>$this->input->post('itemName'),
+					'itemDesc'=>$this->input->post('itemDesc'),
+					'itemPrice'=>str_replace(',', '', $this->input->post('itemPrice')),
+					'idCtg'=>$this->input->post('itemCtg'),
+					'itemSlug'=>$slug,
+					'itemStatus'=>1,
+					'updatedAt'=>date('Y-m-d H:i:s')
+				);
+				$res = $this->M_adm->update_data('goods',$this->input->post('ids'),'itemId',$data);
+				if($res == '0') {
+					$data['error']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+					$data['title']='Tritunggal Metalworks';
+					$data['ctg'] = $this->M_adm->getMasterByTable('categories', 'ctgStatus', 1);
+					$data['goods']=$this->M_adm->get_edit_data('goods','itemId',$this->input->post('ids'));
+					$this->load->view('menu/backend/new/edit-goods', $data);
+				}
+				else {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+					redirect('admin/edit-goods-images/'.$this->input->post('ids'));
+				}	
+			}
+		}
+
+		public function deleteGoods($param) {
+			$exp = explode('-', $param);
+			$id_table='itemId';
+			$table='goods';	
+			$this->M_adm->delete_data($table,$exp[0],$id_table);
+			redirect('admin/manage-goods');
+		}
+
+		public function addingGoodsImages() {
+			$config['upload_path']   = './assets/uploads/goods/';
+      $config['allowed_types'] = 'gif|jpg|png|ico';
+      // $this->load->library('upload',$config);
+			$this->upload->initialize($config);
+      if($this->upload->do_upload('imgFile')){
+      	$ids = $this->input->post('ids');
+				$token = $this->input->post('token');
+        $path = $this->upload->data('file_name');
+        $this->db->insert('goods_images',array('itemId'=>$ids, 'imgPath'=>$path,'imgToken'=>$token));
+				echo json_encode('sukses');
+      }
+			else {
+				echo json_encode(array('error'=>$this->upload->display_errors()));
+			}
+		}
+
+		public function removeGoodsImages() {
+			$ids = $this->input->post('ids');
+			$token = $this->input->post('token');
+			$img = $this->db->get_where('goods_images', array('imgToken'=>$token, 'itemId'=>$ids));
+			if($img->num_rows() > 0){
+				$hasil = $img->row();
+				$imgPath = $hasil->imgPath;
+				if(file_exists($file = './assets/uploads/goods/'.$imgPath)){
+					unlink($file);
+				}
+				$this->db->delete('goods_images', array('imgId'=>$hasil->imgId));
+				echo json_encode('File berhasil dihapus');
+			}
+			else {
+				echo json_encode('File tidak ditemukan');
+			}
+		}
+
+		//category
+		public function manageCategories() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/manage-categories', $data);
+		}
+
+		public function categoryList() {
+			$list = $this->DtbManageCategories->get_datatables();
+			$data = array();
+			$no = $_POST['start'];
+			foreach ($list as $dat) {
+				$no++;
+				$row = array();
+				$row[] = $no;
+				$row[] = $dat->ctgName;
+				$row[] = $dat->ctgSlug;
+        $row[] = '<a href="'.base_url().'admin/edit-category/'.$dat->idCtg.'" class="btn mb-1 btn-warning"><i class="fas fa-fw fa-edit"></i></a><a href="'.base_url().'Administrator/deleteCategory/'.$dat->idCtg.'" class="btn mb-1 btn-danger"><i class="fas fa-fw fa-trash-alt"></i></a>';
+				$data[] = $row;
+			}
+			$output = array(
+							"draw" => $_POST['draw'],
+							"recordsTotal" => $this->DtbManageCategories->count_all(),
+							"recordsFiltered" => $this->DtbManageCategories->count_filtered(),
+							"data" => $data,
+					);			
+			echo json_encode($output);
+    }
+
+		public function addCategory() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/add-category', $data);
+		}
+
+		public function editCategory($ids) {
+			$id='idCtg';
+			$table='categories';
+			$data['title']='Tritunggal Metalworks';
+			$data['ctg']=$this->M_adm->get_edit_data($table,$id,$ids);
+			$this->load->view('menu/backend/new/edit-category', $data);
+		}
+
+		public function saveCategory() {
+			$this->form_validation->set_rules('ctgName','Nama Kategori','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('ctgName'), 'dash', true);
+			$check = $this->M_adm->checkSlug('categories', 'ctgSlug', $slug);
+			if($this->form_validation->run() === FALSE) {
+				$this->addCategory();
+			}
+			else if ($check > 0) {
+				$data['title']='Tritunggal Metalworks';
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$this->load->view('menu/backend/new/add-category', $data);
+			}
+			else {
+				$data = array (
+					'ctgName'=>$this->input->post('ctgName'),
+					'ctgSlug'=>$slug,
+					'ctgStatus'=>1
+				);
+				$res = $this->M_adm->insert_data('categories',$data);
+				if($res == '0') {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+					$this->load->vars($data);
+					$this->addCategory();
+				}
+				else {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+					redirect('admin/manage-categories');
+				}	
+			}
+		}
+
+		public function updateCategory() {
+			$this->form_validation->set_rules('ctgName','Nama Kategori','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('ctgName'), 'dash', true);
+			$check = $this->M_adm->checkSlug('categories', 'ctgSlug', $slug);
+			if($this->form_validation->run() === FALSE) {
+				$this->editCategory($this->input->post('ids'));
+			}
+			else if ($check > 0) {
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$data['title']='Tritunggal Metalworks';
+				$data['ctg']=$this->M_adm->get_edit_data('categories','idCtg',$this->input->post('ids'));
+				$this->load->view('menu/backend/new/edit-category', $data);
+			}
+			else {
+				$data = array (
+					'ctgName'=>$this->input->post('ctgName'),
+					'ctgSlug'=>$slug,
+					'ctgStatus'=>1
+				);
+				$res = $this->M_adm->update_data('categories',$this->input->post('ids'),'idCtg',$data);
+				if($res == '0') {
+					$data['error']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+					$data['title']='Tritunggal Metalworks';
+					$data['ctg']=$this->M_adm->get_edit_data('categories','idCtg',$this->input->post('ids'));
+					$this->load->view('menu/backend/new/edit-category', $data);
+				}
+				else {
+					$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+					redirect('admin/manage-categories');
+				}	
+			}
+		}
+
+		public function deleteCategory($param) {
+			$exp = explode('-', $param);
+			$id_table='idCtg';
+			$table='categories';	
+			$this->M_adm->delete_data($table,$exp[0],$id_table);
+			redirect('admin/manage-categories');
+		}
+
 		//banner
+		public function manageBanner() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/manage-banner', $data);
+		}
+
+		public function bannerList() {
+			$list = $this->DtbManageBanner->get_datatables();
+			$data = array();
+			$no = $_POST['start'];
+			foreach ($list as $dat) {
+				$no++;
+				$row = array();
+				$row[] = $no;
+				$row[] = $dat->judul_banner;
+				$row[] = '<img src="'.base_url().'assets/uploads/banner/'.$dat->path_banner.'" class="img-thumbnail img-responsive" width="100%">';
+				$row[] = strip_tags($dat->caption_banner);
+        $row[] = '<a href="'.base_url().'admin/edit-banner/'.$dat->id_banner.'" class="btn mb-1 btn-warning"><i class="fas fa-fw fa-edit"></i></a><a href="'.base_url().'Administrator/deleteBanner/'.$dat->id_banner.'-'.$dat->path_banner.'" class="btn mb-1 btn-danger"><i class="fas fa-fw fa-trash-alt"></i></a>';
+				$data[] = $row;
+			}
+			$output = array(
+							"draw" => $_POST['draw'],
+							"recordsTotal" => $this->DtbManageBanner->count_all(),
+							"recordsFiltered" => $this->DtbManageBanner->count_filtered(),
+							"data" => $data,
+					);			
+			echo json_encode($output);
+    }
+
+		public function addBanner() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/add-banner', $data);
+		}
+
+		public function editBanner($ids) {
+			$id='id_banner';
+			$table='web_banner';
+			$data['title']='Tritunggal Metalworks';
+			$data['banner']=$this->M_adm->get_edit_data($table,$id,$ids);
+			$this->load->view('menu/backend/new/edit-banner', $data);
+		}
+
+		public function saveBanner() {
+			$this->form_validation->set_rules('judulBanner','Judul','required');
+			$this->form_validation->set_rules('captionBanner','Caption','required');			
+			if (empty($_FILES['fileBanner']['name'])) {
+				$this->form_validation->set_rules('fileBanner', 'Gambar', 'required');
+			}
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			if($this->form_validation->run() === FALSE) {
+				$this->addBanner();
+			}
+			else {
+				$table='web_banner';
+				$minwidth='1920';
+				$minheight='900';
+				$path='./assets/uploads/banner/';
+				$this->configImg($path,$minwidth,$minheight);
+				if(!$this->upload->do_upload('fileBanner')) {
+					$data['title']='Tritunggal Metalworks';
+					$data['error'] = $this->upload->display_errors();
+					$this->load->view('menu/backend/new/add-banner', $data);
+				}
+				else {
+					$fileinfo = $this->upload->data();
+					$data = array (
+							'judul_banner'=>$this->input->post('judulBanner'),
+							'caption_banner'=>$this->input->post('captionBanner'),						
+							'path_banner'=>$fileinfo['file_name']
+						);
+					$res = $this->M_adm->insert_data($table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->addBanner();
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-banner');
+					}	
+				}			
+			}
+		}
+
+		public function updateBanner() {
+			$this->form_validation->set_rules('judulBanner','Judul','required');
+			$this->form_validation->set_rules('captionBanner','Caption','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			if($this->form_validation->run() === FALSE) {
+				$this->editBanner($this->input->post('ids'));
+			}
+			else {
+				$table='web_banner';
+				$id_table='id_banner';
+				$minwidth='1920';
+				$minheight='900';
+				$path='./assets/uploads/banner/';
+				$this->configImg($path,$minwidth,$minheight);
+				if(!$this->upload->do_upload('fileBanner')) {
+					$data = array (
+						'judul_banner'=>$this->input->post('judulBanner'),
+						'caption_banner'=>$this->input->post('captionBanner')
+					);
+					$res = $this->M_adm->update_data($table,$this->input->post('ids'),$id_table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->editBanner($this->input->post('ids'));
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-banner');
+					}
+				}
+				else {
+					$fileinfo = $this->upload->data();
+					$data = array (
+							'judul_banner'=>$this->input->post('judulBanner'),
+							'caption_banner'=>$this->input->post('captionBanner'),
+							'path_banner'=>$fileinfo['file_name']
+						);
+					$res = $this->M_adm->update_data($table,$this->input->post('ids'),$id_table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->editBanner($this->input->post('ids'));
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-banner');
+					}
+				}
+			}
+		}
+
+		public function deleteBanner($param) {
+			$exp = explode('-', $param);
+			$id_table='id_banner';
+			$table='web_banner';	
+			unlink('./assets/uploads/banner/'.$exp[1]);
+			$this->M_adm->delete_data($table,$exp[0],$id_table);
+			redirect('admin/manage-banner');
+		}
+
 		public function web_banner()
 		{
 			$table='web_banner';
@@ -1357,10 +1809,10 @@
 		public function configImg($path,$minwidth,$minheight) {
 			$nmfile='img_'.time();
 			$config['upload_path']=$path;
-			$config['allowed_types']='jpg|jpeg';
+			$config['allowed_types']='jpg|jpeg|png';
 			$config['max_size']='3000';
-			$config['max_width']='1800';
-			$config['max_height']='1200';
+			$config['max_width']='2800';
+			$config['max_height']='1800';
 			$config['min_width']=$minwidth;
 			$config['min_height']=$minheight;
 			$config['file_name']=$nmfile;

@@ -42,7 +42,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">                        
                         <li>
-                            <a class="active" href="<?php echo base_url() ?>Administrator/dashboard">
+                            <a class="active" href="<?php echo base_url() ?>admin/dashboard">
                                 <i class="fa fa-dashboard fa-fw"></i> Dashboard
                             </a>
                         </li>
@@ -52,7 +52,7 @@
                             </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url() ?>Administrator/web_banner">Data Banner</a>
+                                    <a href="<?php echo base_url() ?>admin/manage-banner">Data Banner</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url() ?>Administrator/add_web_banner">Tambah Banner</a>
