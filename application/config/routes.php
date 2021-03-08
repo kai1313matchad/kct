@@ -64,6 +64,7 @@ $route['about-team'] = 'Home/aboutTeam';
 $route['about-history'] = 'Home/aboutHistory';
 $route['about-partners'] = 'Home/partners';
 $route['shop/(:any)'] = 'Home/shopList/1';
+$route['shop/detail/(:any)'] = 'Home/shopDetail/$1';
 
 //Administrator
 $route['admin/dashboard'] = 'Administrator/dashboard';

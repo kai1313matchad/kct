@@ -662,7 +662,7 @@
 								<a href="#">
 									<img src="'.base_url().'assets/uploads/goods/'.$pic.'" alt="" class="img-fluid">
 								</a>
-								<span class="to-detail"><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Lihat detail</a></span>
+								<span class="to-detail"><a href="'.base_url().'shop/detail/'.$dt->itemSlug.'" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Lihat detail</a></span>
 							</div>
 							<div class="body">
 								<div class="title"><a href="#">'.$dt->itemName.'</a></div>
@@ -674,6 +674,20 @@
 					</div>';
 			}
 			return $html;
+		}
+
+		public function shopDetail($slug) {
+			$data['recentNews'] = $this->latestNews(2);
+			$uri = $slug;//$this->uri->segment(2);
+			$goods = $this->M_dash->select_data($uri, 'goods','itemSlug');
+			$pics = $this->M_adm->getDataByParentId('goods_images', array('itemId'=>$goods["itemId"]));
+			$data['meta'] = $this->metaGoods($slug);
+			$data['goods'] = $goods;
+			$data['pics'] = $pics;
+			$data['ctg'] = $this->M_dash->select_data($goods["idCtg"], 'categories','idCtg');
+			$data['title'] = 'Tritunggal Metalworks ||'.strtolower($goods["itemName"]);
+			$data['ctn'] = 'menu/frontend/new/shop-details';
+			$this->load->view('layout/frontend/wrapper-new',$data);
 		}
 
 		public function projectList() {
@@ -1055,6 +1069,17 @@
             $res[] = '<meta name="og:description" content="'.$get_meta->row()->meta_desc.'">';
             $res[] = '<meta name="og:image" content="'.$path.'">';
 			$data['meta_addon'] = $res;
+			return $res;
+		}
+
+		public function metaGoods($slug) {
+			$goods = $this->M_dash->select_data($slug, 'goods','itemSlug');
+			$pics = $this->M_adm->getDataByParentId('goods_images', array('itemId'=>$goods["itemId"]));
+			$res = array();
+			$res[] = '<meta name="og:title" content="'.$goods["itemSlug"].'">';
+      $res[] = '<meta name="og:description" content="'.strip_tags($goods["itemDesc"]).'">';
+      $res[] = '<meta name="og:image" content="'.base_url().'assets/uploads/goods/'.$pics[0]->imgPath.'">';
+			$res;
 			return $res;
 		}
 

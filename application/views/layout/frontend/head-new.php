@@ -6,11 +6,15 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tritunggal Metalworks</title>
-    <meta name="description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of billboard construction">
-    <meta name="keywords" content="business, engineering, industrial, manufacturing, mechanical, multipurpose, oil and gas, Power and Energy">
-    <meta name="author" content="rometheme.net"> 
-	
+    <title><?= $title; ?></title>
+    <meta name="description" content="PT Kreasi Cipta Tritunggal is a company focused on the field of construction, furniture, and advertising">
+    <meta name="keywords" content="business, furniture, engineering, industrial, manufacturing, mechanical, multipurpose, construction">
+    <meta name="author" content="kaisha1313">
+    <?php if(isset($meta)) {
+      foreach ($meta as $meta) {
+        echo $meta;
+      }
+    }?>
     <!-- ==============================================
     Favicons
     =============================================== -->
