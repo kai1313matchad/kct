@@ -206,7 +206,7 @@
 
 		public function addingGoodsImages() {
 			$config['upload_path']   = './assets/uploads/goods/';
-      $config['allowed_types'] = 'gif|jpg|png|ico';
+      $config['allowed_types'] = 'gif|jpg|jpeg|png|ico';
       // $this->load->library('upload',$config);
 			$this->upload->initialize($config);
       if($this->upload->do_upload('imgFile')){

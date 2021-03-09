@@ -46,6 +46,7 @@
                   <dt>Kategori</dt>
                   <dd><?= ucfirst($ctg["ctgName"]);?></dd>
                 </dl>
+                <h4><strong>Rp<?= number_format($goods["itemPrice"], 0, '.', ',');?></h4>
               </div>
               <div class="widget download">
                 <a href="https://wa.me/6282230560661?text=Hi, TritunggalMetalworks! Saya ingin pesan produk <?= ucfirst($goods["itemName"]); ?>" class="btn btn-success btn-block btn-sidebar"><span class="fa  fa-shopping-cart"></span> Pesan Sekarang</a>
