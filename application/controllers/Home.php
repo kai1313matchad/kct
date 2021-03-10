@@ -57,6 +57,7 @@
 		public function index() {
 			$data['latestNews']=$this->latestNews(3);
 			$data['recentNews']=$this->latestNews(2);
+			$data['banners'] = $this->db->get('web_banner')->result();
 			$data['title']='Tritunggal Metalworks';
 			$data['ctn']='menu/frontend/new/homes-ind';
 			// $data['meta_add'] = $this->meta_social(2);

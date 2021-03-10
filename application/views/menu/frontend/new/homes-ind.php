@@ -1,30 +1,27 @@
     <!-- BANNER -->
     <div id="home" class="banner">
     	<div class="owl-carousel owl-theme full-screen">
+				<?php foreach ($banners as $banner) { ?>
+					<div class="item">
+						<img src="<?= base_url()?>assets/uploads/banner/<?= $banner->path_banner; ?>" alt="Slider">
+						<div class="container d-flex align-items-center h-right">
+							<div class="wrap-caption">
+							</div>   
+						</div>
+					</div>
+				<?php }?>
     		<!-- Item 1 -->
-	    	<div class="item">
+	    	<!-- <div class="item">
 	        <img src="<?= base_url()?>assets/v1/images/1920x900/1920x900-1.jpg" alt="Slider">
 	        <div class="container d-flex align-items-center h-right">
 	          <div class="wrap-caption">
 		          <h1 class="caption-heading text-white">TRITUNGGAL <span>Metalworks</span></h1>
 		          <p class="uk18 text-white">Tim kami bekerja secara professional untuk menambah produktifitas dan efektifitas biaya.</p>
-		          <!-- <a href="#" class="btn btn-primary text-white">Get Started</a> 
-		          <a href="#" class="btn btn-secondary">Learn More</a> -->
+		          <a href="#" class="btn btn-primary text-white">Get Started</a> 
+		          <a href="#" class="btn btn-secondary">Learn More</a>
 		        </div>   
 	        </div>
-	    	</div>
-	    	<!-- Item 2 -->
-	    	<div class="item">
-	        <img src="<?= base_url()?>assets/v1/images/1920x900/1920x900-5.jpg" alt="Slider">
-	        <div class="container d-flex align-items-center h-center">
-	          <div class="wrap-caption">
-		          <h1 class="caption-heading text-white">TRITUNGGAL <span>Metalworks</span></h1>
-		          <p class="uk18 text-white">Tim kami bekerja secara professional untuk menambah produktifitas dan efektifitas biaya.</p>
-		          <!-- <a href="#" class="btn btn-primary text-white">Get Started</a> 
-		          <a href="#" class="btn btn-secondary">Learn More</a> -->
-		        </div>  
-	        </div>
-	      </div> 
+	    	</div>  -->
     	</div>
 	    <div class="custom-nav owl-nav"></div>
     </div>
