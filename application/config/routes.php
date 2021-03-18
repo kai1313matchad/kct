@@ -79,3 +79,6 @@ $route['admin/add-goods'] = 'Administrator/addGoods';
 $route['admin/add-goods-images/(:any)'] = 'Administrator/addGoodsImages/$1';
 $route['admin/edit-goods/(:any)'] = 'Administrator/editGoods/$1';
 $route['admin/edit-goods-images/(:any)'] = 'Administrator/editGoodsImages/$1';
+$route['admin/manage-articles'] = 'Administrator/manageArticle';
+$route['admin/add-article'] = 'Administrator/addArticle';
+$route['admin/edit-article/(:any)'] = 'Administrator/editArticle/$1';

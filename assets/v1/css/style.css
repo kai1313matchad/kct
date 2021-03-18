@@ -2594,7 +2594,8 @@ BLOG
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background-color: #006190; }
+    background-color: #006190; 
+    max-height: 164.05px; }
     .rs-news-1 .media img {
       -webkit-transition: 0.4s all linear;
       transition: 0.4s all linear; }

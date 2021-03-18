@@ -32,6 +32,12 @@
               <span>Barang</span>
 						</a>
           </li>
+					<li class="nav-item">
+          	<a class="nav-link" href="<?= base_url()?>admin/manage-articles">
+            	<i class="fas fa-fw fa-box"></i>
+              <span>Artikel</span>
+						</a>
+          </li>
 
 					<!-- Divider -->
 					<hr class="sidebar-divider d-none d-md-block">

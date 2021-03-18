@@ -7,7 +7,7 @@
 		{
 			parent::__construct();
 			$this->load->model('backend/M_administrator','M_adm');
-			$this->load->model(array('backend/DtbManageBanner', 'backend/DtbManageCategories', 'backend/DtbManageGoods'));
+			$this->load->model(array('backend/DtbManageBanner', 'backend/DtbManageCategories', 'backend/DtbManageGoods', 'backend/DtbManageArticle'));
 		}				
 
 		//List Menu
@@ -45,6 +45,171 @@
 		public function logout()
 		{
 			$this->simple_login->logout();
+		}
+
+		//articles
+		public function manageArticle() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/manage-articles', $data);
+		}
+
+		public function articleList() {
+			$list = $this->DtbManageArticle->get_datatables();
+			$data = array();
+			$no = $_POST['start'];
+			foreach ($list as $dat) {
+				$no++;
+				$row = array();
+				$row[] = $no;
+				$row[] = '<img src="'.base_url().'assets/uploads/news/'.$dat->path.'" class="img-thumbnail img-responsive" width="100%">';
+				$row[] = $dat->judul;
+				$row[] = mb_strimwidth(strip_tags($dat->isi), 0, 150, '...');
+        $row[] = '<a href="'.base_url().'admin/edit-article/'.$dat->id_news.'" class="btn mb-1 btn-warning"><i class="fas fa-fw fa-edit"></i></a><a href="'.base_url().'Administrator/deleteArticle/'.$dat->id_news.'-'.$dat->path.'" class="btn mb-1 btn-danger"><i class="fas fa-fw fa-trash-alt"></i></a>';
+				$data[] = $row;
+			}
+			$output = array(
+							"draw" => $_POST['draw'],
+							"recordsTotal" => $this->DtbManageArticle->count_all(),
+							"recordsFiltered" => $this->DtbManageArticle->count_filtered(),
+							"data" => $data,
+					);			
+			echo json_encode($output);
+    }
+
+		public function addArticle() {
+			$data['title']='Tritunggal Metalworks';
+			$this->load->view('menu/backend/new/add-article', $data);
+		}
+
+		public function editArticle($ids) {
+			$id='id_news';
+			$table='news';
+			$data['title']='Tritunggal Metalworks';
+			$data['art']=$this->M_adm->get_edit_data($table,$id,$ids);
+			$this->load->view('menu/backend/new/edit-article', $data);
+		}
+
+		public function saveArticle() {
+			$this->form_validation->set_rules('judulArticle','Judul','required');
+			$this->form_validation->set_rules('isiArticle','Isi','required');			
+			if (empty($_FILES['fileArticle']['name'])) {
+				$this->form_validation->set_rules('fileArticle', 'Gambar', 'required');
+			}
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('judulArticle'), 'dash', true);
+			$check = $this->M_adm->checkSlug('news', 'url', $slug);
+			if($this->form_validation->run() === FALSE) {
+				$this->addArticle();
+			}
+			else if ($check > 0) {
+				$data['title']='Tritunggal Metalworks';
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$this->load->view('menu/backend/new/add-article', $data);
+			}
+			else {
+				$table='news';
+				$minwidth='1920';
+				$minheight='900';
+				$path='./assets/uploads/news/';
+				$this->configImg($path,$minwidth,$minheight);
+				if(!$this->upload->do_upload('fileArticle')) {
+					$data['title']='Tritunggal Metalworks';
+					$data['error'] = $this->upload->display_errors();
+					$this->load->view('menu/backend/new/add-article', $data);
+				}
+				else {
+					$fileinfo = $this->upload->data();
+					$data = array (
+							'judul'=>$this->input->post('judulArticle'),
+							'isi'=>$this->input->post('isiArticle'),						
+							'path'=>$fileinfo['file_name'],
+							'url'=>$slug,
+						);
+					$res = $this->M_adm->insert_data($table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->addArticle();
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-articles');
+					}	
+				}			
+			}
+		}
+
+		public function updateArticle() {
+			$this->form_validation->set_rules('judulArticle','Judul','required');
+			$this->form_validation->set_rules('isiArticle','Caption','required');
+			$this->form_validation->set_message('required', '<div class="col-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>%s Belum Diisi!!!</strong></div></div>');
+			$slug = url_title($this->input->post('judulArticle'), 'dash', true);
+			$check = $this->M_adm->checkSlug('news', 'url', $slug);
+			$checkExist = $this->M_adm->checkSlugExist('news', array('url'=>$slug, 'id_news'=>$this->input->post('ids')));
+			if($this->form_validation->run() === FALSE) {
+				$this->editArticle($this->input->post('ids'));
+			}
+			else if ($check > 0 && $checkExist == 0) {
+				$data['error'] = '<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Nama sudah digunakan, data gagal disimpan!!!</strong></div></div>';
+				$data['title']='Tritunggal Metalworks';
+				$data['art']=$this->M_adm->get_edit_data('news','id_news',$this->input->post('ids'));
+				$this->load->view('menu/backend/new/edit-article', $data);
+			}
+			else {
+				$table='news';
+				$id_table='id_news';
+				$minwidth='1920';
+				$minheight='900';
+				$path='./assets/uploads/news/';
+				$this->configImg($path,$minwidth,$minheight);
+				if(!$this->upload->do_upload('fileArticle')) {
+					$data = array (
+						'judul'=>$this->input->post('judulArticle'),
+						'isi'=>$this->input->post('isiArticle'),
+						'url'=>$slug,
+					);
+					$res = $this->M_adm->update_data($table,$this->input->post('ids'),$id_table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->editArticle($this->input->post('ids'));
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-articles');
+					}
+				}
+				else {
+					$fileinfo = $this->upload->data();
+					$article=$this->M_adm->get_edit_data($table,$id_table,$this->input->post('ids'));
+					unlink('./assets/uploads/news/'.$article["path"]);
+					$data = array (
+							'judul'=>$this->input->post('judulArticle'),
+							'isi'=>$this->input->post('isiArticle'),
+							'path'=>$fileinfo['file_name'],
+							'url'=>$slug,
+						);
+					$res = $this->M_adm->update_data($table,$this->input->post('ids'),$id_table,$data);
+					if($res == '0') {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Gagal Disimpan!!!</strong></div></div>';
+						$this->load->vars($data);
+						$this->editArticle($this->input->post('ids'));
+					}
+					else {
+						$data['msg']='<div class="col-lg-12"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><strong>Data Berhasil Disimpan!!!</strong></div></div>';
+						redirect('admin/manage-articles');
+					}
+				}
+			}
+		}
+
+		public function deleteArticle($param) {
+			$exp = explode('-', $param);
+			$id_table='id_news';
+			$table='news';	
+			unlink('./assets/uploads/news/'.$exp[1]);
+			$this->M_adm->delete_data($table,$exp[0],$id_table);
+			redirect('admin/manage-articles');
 		}
 
 		//goods
@@ -470,6 +635,8 @@
 				}
 				else {
 					$fileinfo = $this->upload->data();
+					$banner=$this->M_adm->get_edit_data($table,$id_table,$this->input->post('ids'));
+					unlink('./assets/uploads/banner/'.$banner["path_banner"]);
 					$data = array (
 							'judul_banner'=>$this->input->post('judulBanner'),
 							'caption_banner'=>$this->input->post('captionBanner'),
